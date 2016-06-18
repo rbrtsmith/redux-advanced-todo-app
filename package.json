@@ -8,7 +8,7 @@
     "build": "gulp build",
     "build:production": "gulp --release",
     "lint": "gulp lint:js && gulp lint:scss",
-    "test": "mocha test/.setup.js test/**/*-test.js"
+    "test": "npm run lint && mocha test/.setup.js test/**/*-test.js"
   },
   "author": "Robert Smoth",
   "license": "MIT",
