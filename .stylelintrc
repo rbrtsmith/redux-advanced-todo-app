@@ -1,0 +1,18 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": [
+    "scss/foundation/resets/_normalize.scss"
+  ],
+  "rules": {
+    "max-empty-lines": 4,
+    "string-quotes": "single",
+    "function-url-quotes": "always",
+    "color-hex-length": "long",
+    "media-feature-no-missing-punctuation": null,
+    "declaration-colon-newline-after": null,
+    "font-family-name-quotes": null,
+    "number-leading-zero": "never",
+    "value-list-comma-newline-after": null,
+    "no-invalid-double-slash-comments": null
+  }
+}

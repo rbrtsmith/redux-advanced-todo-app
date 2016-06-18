@@ -5,7 +5,7 @@ import Greeting from './greeting';
 const App = () => (
   <div>
     <h1>App</h1>
-    <Greeting msg="World"/>
+    <Greeting msg="World" />
   </div>
 );
 
