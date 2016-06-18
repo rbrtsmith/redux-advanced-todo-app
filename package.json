@@ -1,7 +1,7 @@
 {
-  "name": "customer-preference-centre-sandbox",
+  "name": "React-sass-boilerplate",
   "version": "1.0.0",
-  "description": "A sandbox for Sainsbury's customer preference centre",
+  "description": "A starting point for React projects",
   "main": "index.js",
   "scripts": {
     "start": "gulp --watch",
@@ -10,8 +10,8 @@
     "lint": "gulp lint:js && gulp lint:scss",
     "test": "mocha test/.setup.js test/**/*-test.js"
   },
-  "author": "Sainsbury's D&T",
-  "license": "UNLICENSED",
+  "author": "Robert Smoth",
+  "license": "MIT",
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
