@@ -1,8 +1,5 @@
 {
   "extends": "stylelint-config-standard",
-  "ignoreFiles": [
-    "scss/foundation/resets/_normalize.scss"
-  ],
   "rules": {
     "max-empty-lines": 4,
     "string-quotes": "single",

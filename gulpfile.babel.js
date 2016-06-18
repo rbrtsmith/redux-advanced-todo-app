@@ -87,13 +87,10 @@ gulp.task('sass', () => {
     })
   ];
 
-  const includePaths = [
-    './node_modules/sass-foundation/scss/'
-  ];
 
   return gulp.src([Paths.SASS_SRC])
     .pipe(gulpif(development, sourcemaps.init()))
-    .pipe(sass({ includePaths }).on('error', gutil.log))
+    .pipe(sass().on('error', gutil.log))
     .pipe(postCss(postCssProcessors))
     .pipe(gulpif(development, sourcemaps.write()))
     .pipe(gulpif(release, cleanCss({ advanced: false })))
