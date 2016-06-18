@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Greeting from './greeting';
+import Greeting from './components/Greeting';
 
 const App = () => (
   <div>
     <h1>App</h1>
-    <Greeting msg="World" />
+    <Greeting msg="HeLlO" />
   </div>
 );
 
