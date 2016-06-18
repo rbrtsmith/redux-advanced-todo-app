@@ -30,31 +30,36 @@ const Paths = {
 };
 
 const release = argv.release || false;
-const development = !release;
-const watch = argv.watch || false;
+const Flags = {
+  RELEASE: release,
+  DEV: !release,
+  WATCH: argv.watch || false
+};
+
 
 gulp.task('clean', () => {
   return gulp.src(Paths.OUT, { read: false }).pipe(clean());
 });
 
-const bundle = bundler => {
-  return bundler
-    .transform('babelify', { presets: ['es2015', 'react'] })
-    .bundle()
-    .on('error', function(e) {
-      gutil.log(e)
-    })
-    .pipe(source('bundle.js'))
-    .pipe(buffer())
-    .pipe(gulpif(development, sourcemaps.init({ loadMaps: true })))
-    .pipe(gulpif(development, sourcemaps.write()))
-    .pipe(gulpif(release, uglify().on('error', gutil.log)))
-    .pipe(gulp.dest(Paths.OUT))
-    .pipe(gulpif(watch, browserSync.stream()));
-};
 
 gulp.task('build:js', () => {
-  if (watch || development) {
+  const bundle = bundler => {
+    return bundler
+      .transform('babelify', { presets: ['es2015', 'react'] })
+      .bundle()
+      .on('error', function(e) {
+        gutil.log(e)
+      })
+      .pipe(source('bundle.js'))
+      .pipe(buffer())
+      .pipe(gulpif(Flags.DEV, sourcemaps.init({ loadMaps: true })))
+      .pipe(gulpif(Flags.DEV, sourcemaps.write()))
+      .pipe(gulpif(Flags.RELEASE, uglify().on('error', gutil.log)))
+      .pipe(gulp.dest(Paths.OUT))
+      .pipe(gulpif(Flags.WATCH, browserSync.stream()));
+  };
+
+  if (Flags.WATCH || Flags.DEV) {
     watchify.args.debug = true;
     const watcher = watchify(browserify(Paths.JS_ENTRY, watchify.args));
     bundle(watcher);
@@ -86,17 +91,16 @@ gulp.task('sass', () => {
       remove: false
     })
   ];
-
-
   return gulp.src([Paths.SASS_SRC])
-    .pipe(gulpif(development, sourcemaps.init()))
+    .pipe(gulpif(Flags.DEV, sourcemaps.init()))
     .pipe(sass().on('error', gutil.log))
     .pipe(postCss(postCssProcessors))
-    .pipe(gulpif(development, sourcemaps.write()))
-    .pipe(gulpif(release, cleanCss({ advanced: false })))
+    .pipe(gulpif(Flags.DEV, sourcemaps.write()))
+    .pipe(gulpif(Flags.RELEASE, cleanCss({ advanced: false })))
     .pipe(gulp.dest(Paths.SASS_OUT))
-    .pipe(gulpif(watch, browserSync.stream()));
+    .pipe(gulpif(Flags.WATCH, browserSync.stream()));
 });
+
 
 gulp.task('lint:js', () => {
   return gulp.src([Paths.JS_SRC])
@@ -104,6 +108,7 @@ gulp.task('lint:js', () => {
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
+
 
 gulp.task('lint:scss', () => {
   return gulp.src([Paths.SASS_SRC]).pipe(stylelint({
@@ -113,11 +118,13 @@ gulp.task('lint:scss', () => {
   }));
 });
 
+
 gulp.task('copy:html', () => {
   return gulp
     .src(Paths.HTML_SRC)
     .pipe(gulp.dest(Paths.OUT));
 });
+
 
 gulp.task('bundle', ['copy:html', 'sass', 'build:js'], () => {
   gulp.watch(Paths.SASS_SRC, ['sass']);
