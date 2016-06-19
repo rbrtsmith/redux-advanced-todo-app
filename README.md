@@ -4,7 +4,9 @@ This is a bare-bones boilerplate for a ReactJS project.  It uses Babel to transp
 ##Setup
 
 first
-```npm install``` 
+```
+npm install
+``` 
 
 ```npm start``` 
 Runs Gulp in develop mode, this will watch over files for changes and sync them with BrowserSync, this mode also generates sourcemaps.
