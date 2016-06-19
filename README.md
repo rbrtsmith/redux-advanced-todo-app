@@ -9,22 +9,22 @@ npm install
 ``` 
 
 Then choose one of the following:
-```
-npm start
-``` 
-Runs Gulp in develop mode, this will watch over files for changes and sync them with BrowserSync, this mode also generates sourcemaps.
+* Run Gulp in develop mode, this will watch over files for changes and sync them with BrowserSync, this mode also generates sourcemaps.
+  ```
+  npm start
+  ``` 
 
-```
-npm run build:production
-```
-Runs Gulp in production mode, this will ensure all files output are minified without sourcemaps.  
+* Run Gulp in production mode, this will ensure all files output are minified without sourcemaps.  
+  ```
+  npm run build:production
+  ```
 
-```
-npm run lint
-```
-Runs the JS and SASS linters.  These are not automatically run in _develop_ or _production_ modes as they slow down the compilation process.  
+* Run the JS and SASS linters.  These are not automatically run in _develop_ or _production_ modes as they slow down the compilation process.  
+  ```
+  npm run lint
+  ```
 
-```
-npm test
-```
-Runs linting and the unit test suite (Mocha + Chai + Enzyme).  Again this isn't run automatically on the _develop_ or _production_ modes to ensure things run quickly.  Ensure you run this task before committing to your repository.
+* Run linting and the unit test suite (Mocha + Chai + Enzyme).  Again this isn't run automatically on the _develop_ or _production_ modes to ensure things run quickly.  Ensure you run this task before committing to your repository.
+  ```
+  npm test
+  ```
