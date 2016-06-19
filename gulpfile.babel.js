@@ -91,7 +91,7 @@ gulp.task('sass', () => {
       remove: false
     })
   ];
-  return gulp.src([Paths.SASS_SRC])
+  return gulp.src(Paths.SASS_SRC)
     .pipe(gulpif(Flags.DEV, sourcemaps.init()))
     .pipe(sass().on('error', gutil.log))
     .pipe(postCss(postCssProcessors))
@@ -103,7 +103,7 @@ gulp.task('sass', () => {
 
 
 gulp.task('lint:js', () => {
-  return gulp.src([Paths.JS_SRC])
+  return gulp.src(Paths.JS_SRC)
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
@@ -111,7 +111,7 @@ gulp.task('lint:js', () => {
 
 
 gulp.task('lint:scss', () => {
-  return gulp.src([Paths.SASS_SRC]).pipe(stylelint({
+  return gulp.src(Paths.SASS_SRC).pipe(stylelint({
     reporters: [
       { formatter: 'string', console: true }
     ]

@@ -10,7 +10,7 @@
     "lint": "gulp lint:js && gulp lint:scss",
     "test": "npm run lint && mocha test/.setup.js test/**/*-test.js"
   },
-  "author": "Robert Smoth",
+  "author": "Robert Smith",
   "license": "MIT",
   "dependencies": {
     "react": "^15.1.0",
