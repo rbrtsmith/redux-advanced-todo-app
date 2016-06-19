@@ -3,11 +3,12 @@ This is a bare-bones boilerplate for a ReactJS project.  It uses Babel to transp
 
 ##Setup
 
-first
+First
 ```
 npm install
 ``` 
 
+Then choose one of the following:
 ```
 npm start
 ``` 
