@@ -1,20 +1,21 @@
 {
-  "name": "React-sass-boilerplate",
+  "name": "customer-preference-centre-sandbox",
   "version": "1.0.0",
-  "description": "A starting point for React projects",
+  "description": "A sandbox environment for Sainsbury's customer preference centrre",
   "main": "index.js",
   "scripts": {
     "start": "gulp --watch",
     "build": "gulp build",
     "build:production": "gulp --release",
     "lint": "gulp lint:js && gulp lint:scss",
-    "test": "npm run lint && mocha src/test/.setup.js src/test/**/*-test.js"
+    "test": "mocha src/test/.setup.js src/test/**/*-test.js"
   },
-  "author": "Robert Smith",
-  "license": "MIT",
+  "author": "Sainsbury's D&T",
+  "license": "UNLICENCED",
   "dependencies": {
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "sass-foundation": "github:jsainsburyplc/sass-foundation#v1.8.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -42,10 +43,13 @@
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-stylelint": "^2.0.2",
+    "gulp-svgmin": "^1.2.2",
+    "gulp-svgstore": "^6.0.0",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
     "jsdom": "^9.2.1",
     "mocha": "^2.5.3",
+    "path": "^0.12.7",
     "react-addons-test-utils": "^15.1.0",
     "run-sequence": "^1.2.1",
     "stylelint-config-standard": "^9.0.0",
