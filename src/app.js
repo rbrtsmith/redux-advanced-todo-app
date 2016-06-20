@@ -1,12 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Greeting from './components/Greeting';
+import Root from './components/Root';
 
-const App = () => (
-  <div>
-    <h1>App</h1>
-    <Greeting msg="WoRlD" />
-  </div>
-);
-
-ReactDOM.render(<App />, document.querySelector('#app'));
+ReactDOM.render(<Root />, document.querySelector('#app'));

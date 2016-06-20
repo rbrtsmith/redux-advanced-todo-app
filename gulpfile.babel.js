@@ -20,6 +20,7 @@ import sequence from 'run-sequence';
 import svgstore from 'gulp-svgstore';
 import svgmin from 'gulp-svgmin';
 import path from 'path';
+import htmlClean from 'gulp-htmlclean';
 import browserSync from 'browser-sync';
 browserSync.create();
 
@@ -128,6 +129,7 @@ gulp.task('lint:scss', () => {
 gulp.task('copy:html', () => {
   return gulp
     .src(Paths.HTML_SRC)
+    .pipe(gulpif(Flags.RELEASE, htmlClean()))
     .pipe(gulp.dest(Paths.OUT))
     .pipe(gulpif(Flags.WATCH, browserSync.stream()));
 });

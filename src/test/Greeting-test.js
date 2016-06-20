@@ -4,10 +4,17 @@ import { shallow } from 'enzyme';
 import Greeting from '../components/Greeting';
 
 describe('<Greeting />', () => {
-  it('contains a message in a paragraph', () => {
-    const wrapper1 = shallow(<Greeting msg="WORLD" />);
-    const actual = wrapper1.contains(<p>Welcome to our new APP!</p>);
-    const expected = true;
-    assert(actual, expected);
+  it('contains "Welcome to our new APP!" in a paragraph', () => {
+    const $ = shallow(<Greeting />);
+    const actual = $.find('p').text();
+    const expected = 'Welcome to our new APP!';
+    assert.equal(actual, expected);
+  });
+
+  it('renders a message inside of a H2 with the passeed prop in lowercase', () => {
+    const $ = shallow(<Greeting msg="WORLD" />);
+    const actual = $.find('h2').text();
+    const expected = 'Hello world';
+    assert.equal(actual, expected);
   });
 });

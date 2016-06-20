@@ -38,6 +38,7 @@
     "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^2.0.10",
     "gulp-eslint": "^2.0.0",
+    "gulp-htmlclean": "^2.7.6",
     "gulp-if": "^2.0.1",
     "gulp-postcss": "^6.1.1",
     "gulp-sass": "^2.3.2",
