@@ -15,7 +15,6 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "sass-foundation": "github:jsainsburyplc/sass-foundation#v1.8.0",
     "svg4everybody": "^2.1.0"
   },
   "devDependencies": {
