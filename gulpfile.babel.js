@@ -135,7 +135,6 @@ gulp.task('copy:html', () => {
 gulp.task('copy:images', () => {
   return gulp
     .src(Paths.IMG_SRC)
-    .pipe(gulpif(Flags.RELEASE, htmlClean()))
     .pipe(gulp.dest(Paths.IMG_OUT))
     .pipe(gulpif(Flags.WATCH, browserSync.stream()));
 });
