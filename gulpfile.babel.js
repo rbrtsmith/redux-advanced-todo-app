@@ -31,6 +31,8 @@ const Paths = {
   HTML_SRC: 'src/index.html',
   SASS_SRC: './src/scss/**/*.scss',
   SASS_OUT: './dist/assets/css',
+  IMG_SRC: './src/assets/images/*.*',
+  IMG_OUT: './dist/assets/images/',
   SVG_SRC:  './src/assets/images/icons/*.svg',
   SVG_OUT:  './dist/assets/images/'
 };
@@ -134,6 +136,14 @@ gulp.task('copy:html', () => {
     .pipe(gulpif(Flags.WATCH, browserSync.stream()));
 });
 
+gulp.task('copy:images', () => {
+  return gulp
+    .src(Paths.IMG_SRC)
+    .pipe(gulpif(Flags.RELEASE, htmlClean()))
+    .pipe(gulp.dest(Paths.IMG_OUT))
+    .pipe(gulpif(Flags.WATCH, browserSync.stream()));
+});
+
 
 gulp.task('create:svgSprite', () => {
   return gulp.src(Paths.SVG_SRC)
@@ -163,14 +173,20 @@ gulp.task('browserSync:init', () => {
 });
 
 
-gulp.task('bundle', ['copy:html', 'create:svgSprite', 'sass', 'build:js'], () => {
+gulp.task('bundle', ['create:svgSprite', 'sass', 'build:js'], () => {
   if (Flags.WATCH) {
-    gulp.watch(Paths.HTML_SRC, ['copy:html']);
     gulp.watch(Paths.SVG_SRC, ['create:svgSprite']);
     gulp.watch(Paths.SASS_SRC, ['sass']);    
   }
 });
 
-gulp.task('build', () => sequence('clean', 'browserSync:init', 'bundle'));
+gulp.task('copy', ['copy:html', 'copy:images'], () => {
+  if (Flags.WATCH) {
+    gulp.watch(Paths.HTML_SRC, ['copy:html']);
+    gulp.watch(Paths.IMG_SRC, ['copy:images']);
+  }
+});
+
+gulp.task('build', () => sequence('clean', 'browserSync:init', 'copy', 'bundle'));
 
 gulp.task('default', ['build']);
