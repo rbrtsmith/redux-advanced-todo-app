@@ -133,15 +133,17 @@ gulp.task('copy:html', () => {
 });
 
 gulp.task('copy:images', () => {
-  return gulp
+  gulp
     .src(Paths.IMG_SRC)
-    .pipe(gulp.dest(Paths.IMG_OUT))
-    .pipe(gulpif(Flags.WATCH, browserSync.stream()));
+    .pipe(gulp.dest(Paths.IMG_OUT));
+  browserSync.reload();
+  return gulp;
+
 });
 
 
 gulp.task('create:svgSprite', () => {
-  return gulp.src(Paths.SVG_SRC)
+  gulp.src(Paths.SVG_SRC)
     .pipe(svgmin(file => {
       const prefix = path.basename(file.relative, path.extname(file.relative));
       return {
@@ -154,8 +156,9 @@ gulp.task('create:svgSprite', () => {
       };
     }))
     .pipe(svgstore())
-    .pipe(gulp.dest(Paths.SVG_OUT))
-    .pipe(gulpif(Flags.WATCH, browserSync.stream()));
+    .pipe(gulp.dest(Paths.SVG_OUT));
+  browserSync.reload();
+  return gulp;
 });
 
 gulp.task('browserSync:init', () => {
