@@ -24,7 +24,7 @@ Then choose one of the following:
   npm run lint
   ```
 
-* Run linting and the unit test suite (Mocha + Chai + Enzyme).  Again this isn't run automatically on the _develop_ or _production_ modes to ensure things run quickly.  It's recommended that you run this task before committing to your repository.
+* Run linting and the unit test suite (Mocha + Chai + Enzyme).  Again this isn't run automatically on the _develop_ or _production_ modes to ensure things run quickly.  It's recommended that you run this task frequently as per the TDD recommendation of test first.
   ```
   npm t
   ```
