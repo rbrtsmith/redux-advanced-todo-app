@@ -25,16 +25,16 @@ import browserSync from 'browser-sync';
 browserSync.create();
 
 const Paths = {
-  OUT: './dist',
-  JS_SRC: './src/**/*.js',
-  JS_ENTRY: './src/app.js',
+  OUT:      'dist',
+  JS_SRC:   'src/**/*.js',
+  JS_ENTRY: 'src/app.js',
   HTML_SRC: 'src/index.html',
-  SASS_SRC: './src/scss/**/*.scss',
-  SASS_OUT: './dist/assets/css',
-  IMG_SRC: './src/assets/images/*.*',
-  IMG_OUT: './dist/assets/images/',
-  SVG_SRC:  './src/assets/images/icons/*.svg',
-  SVG_OUT:  './dist/assets/images/'
+  SASS_SRC: 'src/scss/**/*.scss',
+  SASS_OUT: 'dist/assets/css',
+  IMG_SRC:  'src/assets/images/*.*',
+  IMG_OUT:  'dist/assets/images/',
+  SVG_SRC:  'src/assets/images/icons/*.svg',
+  SVG_OUT:  'dist/assets/images/'
 };
 
 const release = argv.release || false;
