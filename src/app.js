@@ -1,14 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
+import Root from './components/Root';
 import Main from './components/Main';
 import Single from './components/Single';
 
-render(
+const router = (
   <Router history={browserHistory}>
-    <Route path="/single/:todoId" component={Single} />
-    <Route path="/" component={Main} />
-  </Router>,
-  document.querySelector('#app')
+    <Route path="/" component={Root}>
+      <Route path="/single/:todoId" component={Single} />
+      <IndexRoute component={Main} />
+    </Route>
+  </Router>
 );
+
+render(router, document.querySelector('#app'));

@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default () => (
+const Single =  () => (
   <div>
     <h1>Single</h1>
   </div>
 );
+
+export default Single;
