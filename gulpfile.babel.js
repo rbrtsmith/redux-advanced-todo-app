@@ -22,6 +22,7 @@ import svgmin from 'gulp-svgmin';
 import path from 'path';
 import htmlClean from 'gulp-htmlclean';
 import browserSync from 'browser-sync';
+import modRewrite from 'connect-modrewrite';
 browserSync.create();
 
 const Paths = {
@@ -162,12 +163,17 @@ gulp.task('create:svgSprite', () => {
 });
 
 gulp.task('browserSync:init', () => {
-  if (Flags.WATCH) {
-    browserSync.init({
-      server: Paths.OUT,
-      logFileChanges: false
-    });    
-  }
+  browserSync.init({
+    server: {
+      baseDir: Paths.OUT,
+      middleware: [
+        modRewrite([
+          '!\\.\\w+$ /index.html [L]'
+        ])
+      ]
+    },
+    logFileChanges: false
+  })
 });
 
 

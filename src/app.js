@@ -1,8 +1,14 @@
 import React from 'react';
-import svg4everybody from 'svg4everybody';
-import ReactDOM from 'react-dom';
-import Root from './components/Root';
+import { render } from 'react-dom';
+import { Router, Route, browserHistory } from 'react-router';
 
+import Main from './components/Main';
+import Single from './components/Single';
 
-ReactDOM.render(<Root />, document.querySelector('#app'));
-svg4everybody();
+render(
+  <Router history={browserHistory}>
+    <Route path="/single/:todoId" component={Single} />
+    <Route path="/" component={Main} />
+  </Router>,
+  document.querySelector('#app')
+);
