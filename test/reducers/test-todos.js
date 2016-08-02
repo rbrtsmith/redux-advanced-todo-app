@@ -6,6 +6,7 @@ import todos from '../../src/reducers/todos';
 import actionAddTodo from '../../src/actions/addTodo';
 import actionRemoveTodo from '../../src/actions/removeTodo';
 import actionUpdateTodoStatus from '../../src/actions/updateTodoStatus';
+import actionUpdateTodoTitle from '../../src/actions/updateTodoTitle';
 
 
 test('It should add a todo when action.type = ADD_TODO ', t => {
@@ -78,6 +79,39 @@ test('It should update the todo status when action.type = UPDATE_TODO_STATUS', t
   const action = actionUpdateTodoStatus({
     id: 2,
     status: 'in progress' 
+  });
+  deepFreeze(stateBefore);
+  const actual = todos(stateBefore, action);
+
+  t.deepEqual(actual, expected);
+});
+
+
+
+test('It should update the todo title when action.type = UPDATE_TODO_TITLE', t => {
+  const stateBefore = [
+    {
+      id: 1,
+      title: 'Learn Redux'
+    },
+    {
+      id: 2,
+      title: 'Go swimming'
+    }
+  ];
+  const expected = [
+    {
+      id: 1,
+      title: 'Learn Redux'
+    },
+    {
+      id: 2,
+      title: 'Clean apartment'
+    }
+  ];
+  const action = actionUpdateTodoTitle({
+    id: 2,
+    title: 'Clean apartment' 
   });
   deepFreeze(stateBefore);
   const actual = todos(stateBefore, action);
