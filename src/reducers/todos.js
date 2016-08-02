@@ -27,6 +27,26 @@ const updateTodoTitle = (todo, { id, title }) => {
   return todo;
 };
 
+const updateTodoDescription = (todo, { id, description }) => {
+  if (todo.id === id) {
+    return {
+      ...todo,
+      description
+    };
+  }
+  return todo;
+};
+
+const updateTodoPriority = (todo, { id, priority }) => {
+  if (todo.id === id) {
+    return {
+      ...todo,
+      priority
+    };
+  }
+  return todo;
+};
+
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -40,6 +60,10 @@ const todos = (state = [], action) => {
       return state.map(todo => updateTodoStatus(todo, action.payload));
     case 'UPDATE_TODO_TITLE':
       return state.map(todo => updateTodoTitle(todo, action.payload));
+    case 'UPDATE_TODO_DESCRIPTION':
+      return state.map(todo => updateTodoDescription(todo, action.payload));
+    case 'UPDATE_TODO_PRIORITY':
+      return state.map(todo => updateTodoPriority(todo, action.payload));
     default:
       return state;
   }
