@@ -9,4 +9,9 @@ const TodoCard = ({ title, id }) => (
   </li>
 );
 
+TodoCard.propTypes = {
+  title: React.PropTypes.string.isRequired,
+  id: React.PropTypes.number.isRequired
+};
+
 export default TodoCard;

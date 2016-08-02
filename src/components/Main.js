@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import TodoCard from './TodoCard';
@@ -12,6 +11,10 @@ const Main = ({ todos }) => (
     </ul>
   </div>
 );
+
+Main.propTypes = {
+  todos: React.PropTypes.array.isRequired
+};
 
 const mapStateToProps = state => ({
   todos: state.todos
