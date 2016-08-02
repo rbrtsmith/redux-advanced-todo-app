@@ -8,12 +8,13 @@
     "build": "gulp build",
     "build:production": "gulp --release",
     "lint": "gulp lint:js && gulp lint:scss",
-    "test": "ava test --verbose"
+    "test": "nyc ava test --verbose"
   },
   "author": "Sainsbury's D&T",
   "license": "UNLICENCED",
   "dependencies": {
     "connect-modrewrite": "^0.9.0",
+    "deep-freeze": "0.0.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
@@ -68,5 +69,14 @@
       "babel-register"
     ],
     "babel": "inherit"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ]
   }
 }

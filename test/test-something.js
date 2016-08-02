@@ -1,6 +1,5 @@
 import test from 'ava';
 
-
 test('foo', t => {
 
   const actual = 5;
