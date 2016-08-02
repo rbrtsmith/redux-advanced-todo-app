@@ -7,6 +7,7 @@ import actionAddTodo from '../../src/actions/addTodo';
 import actionRemoveTodo from '../../src/actions/removeTodo';
 import actionUpdateTodoStatus from '../../src/actions/updateTodoStatus';
 
+
 test('It should add a todo when action.type = ADD_TODO ', t => {
   const stateBefore = [{}];
   const action = actionAddTodo({
@@ -32,31 +33,15 @@ test('It should add a todo when action.type = ADD_TODO ', t => {
 
 
 
-
 test('It should remove correct todo when action.type = REMOVE_TODO', t => {
   const stateBefore = [
-    {
-      id: 1,
-      text: 'foo'
-    },
-    {
-      id: 2,
-      text: 'bar'
-    },
-    {
-      id: 3,
-      text: 'baz'
-    }
+    { id: 1 },
+    { id: 2 },
+    { id: 3 }
   ];
   const expected = [
-    {
-      id: 1,
-      text: 'foo'
-    },
-    {
-      id: 3,
-      text: 'baz'
-    }
+    { id: 1 },
+    { id: 3 }
   ];
   const action = actionRemoveTodo({
     id: 2
@@ -66,6 +51,7 @@ test('It should remove correct todo when action.type = REMOVE_TODO', t => {
 
   t.deepEqual(actual, expected);
 });
+
 
 
 test('It should update the todo status when action.type = UPDATE_TODO_STATUS', t => {
@@ -102,25 +88,11 @@ test('It should update the todo status when action.type = UPDATE_TODO_STATUS', t
 
 
 test('It should return the current state if the action.type is unmatched', t => {
-  const stateBefore = [
-    {
-      id: 1,
-      title: 'Learn Redux',
-      description: 'Hello world',
-      priority: 'high'
-    }
-  ];
+  const stateBefore = [{}];
   const action = {
     type: 'DO_SOMETHING_ELSE'
   };
-  const expected = [
-    {
-      id: 1,
-      title: 'Learn Redux',
-      description: 'Hello world',
-      priority: 'high'
-    }
-  ];
+  const expected = [{}];
   deepFreeze(stateBefore);
   const actual = todos(stateBefore, action);
 

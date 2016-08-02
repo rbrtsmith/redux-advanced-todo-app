@@ -27,7 +27,7 @@ const todos = (state = [], action) => {
     case 'REMOVE_TODO':
       return state.filter(todo => removeTodo(todo, action.payload));
     case 'UPDATE_TODO_STATUS':
-      return state.map(todo => updateTodoStatus(todo, action.payload))
+      return state.map(todo => updateTodoStatus(todo, action.payload));
     default:
       return state;
   }
