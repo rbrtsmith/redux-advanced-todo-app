@@ -11,7 +11,7 @@ const Root = ({ children }) => (
 );
 
 Root.propTypes = {
-  children: React.Proptypes.node
+  children: React.PropTypes.node
 };
 
 export default Root;
