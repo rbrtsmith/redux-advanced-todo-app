@@ -3,3 +3,19 @@ $bg: white;
 body {
   background: $bg;
 }
+
+.contains-edit {
+  display: inline-block;
+}
+
+.contains-edit__link {
+  display: inline-block;
+  margin-left: 15px;
+  transform: scale(0);
+  transition: transform .3s;
+  transform-origin: 0 0;
+}
+
+.contains-edit:hover .contains-edit__link {
+  transform: scale(1);
+}

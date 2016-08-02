@@ -15,7 +15,7 @@ import actionUpdateTodoPriority from '../../src/actions/updateTodoPriority';
 test('It should add a todo when action.type = ADD_TODO ', t => {
   const stateBefore = [{}];
   const action = actionAddTodo({
-    id: 1,
+    id: "T1",
     title: 'Learn Redux',
     description: 'Hello world',
     priority: 'high'
@@ -23,7 +23,7 @@ test('It should add a todo when action.type = ADD_TODO ', t => {
   const expected = [
     {},
     {
-      id: 1,
+      id: "T1",
       title: 'Learn Redux',
       description: 'Hello world',
       priority: 'high'
@@ -39,16 +39,16 @@ test('It should add a todo when action.type = ADD_TODO ', t => {
 
 test('It should remove correct todo when action.type = REMOVE_TODO', t => {
   const stateBefore = [
-    { id: 1 },
-    { id: 2 },
-    { id: 3 }
+    { id: "T1" },
+    { id: "T2" },
+    { id: "T3" }
   ];
   const expected = [
-    { id: 1 },
-    { id: 3 }
+    { id: "T1" },
+    { id: "T3" }
   ];
   const action = actionRemoveTodo({
-    id: 2
+    id: "T2"
   });
   deepFreeze(stateBefore);
   const actual = todos(stateBefore, action);
@@ -61,26 +61,26 @@ test('It should remove correct todo when action.type = REMOVE_TODO', t => {
 test('It should update the todo status when action.type = UPDATE_TODO_STATUS', t => {
   const stateBefore = [
     {
-      id: 1,
+      id: "T1",
       status: 'todo'
     },
     {
-      id: 2,
+      id: "T2",
       status: 'todo'
     }
   ];
   const expected = [
     {
-      id: 1,
+      id: "T1",
       status: 'todo'
     },
     {
-      id: 2,
+      id: "T2",
       status: 'in progress'
     }
   ];
   const action = actionUpdateTodoStatus({
-    id: 2,
+    id: "T2",
     status: 'in progress' 
   });
   deepFreeze(stateBefore);
@@ -94,26 +94,26 @@ test('It should update the todo status when action.type = UPDATE_TODO_STATUS', t
 test('It should update the todo title when action.type = UPDATE_TODO_TITLE', t => {
   const stateBefore = [
     {
-      id: 1,
+      id: "T1",
       title: 'Learn Redux'
     },
     {
-      id: 2,
+      id: "T2",
       title: 'Go swimming'
     }
   ];
   const expected = [
     {
-      id: 1,
+      id: "T1",
       title: 'Learn Redux'
     },
     {
-      id: 2,
+      id: "T2",
       title: 'Clean apartment'
     }
   ];
   const action = actionUpdateTodoTitle({
-    id: 2,
+    id: "T2",
     title: 'Clean apartment' 
   });
   deepFreeze(stateBefore);
@@ -128,26 +128,26 @@ test('It should update the todo title when action.type = UPDATE_TODO_TITLE', t =
 test('It should update the todo priority when action.type = UPDATE_TODO_PRIORITY', t => {
   const stateBefore = [
     {
-      id: 1,
+      id: "T1",
       priority: 'Low'
     },
     {
-      id: 2,
+      id: "T2",
       priority: 'Low'
     }
   ];
   const expected = [
     {
-      id: 1,
+      id: "T1",
       priority: 'High'
     },
     {
-      id: 2,
+      id: "T2",
       priority: 'Low'
     }
   ];
   const action = actionUpdateTodoPriority({
-    id: 1,
+    id: "T1",
     priority: 'High' 
   });
   deepFreeze(stateBefore);
@@ -161,26 +161,26 @@ test('It should update the todo priority when action.type = UPDATE_TODO_PRIORITY
 test('It should update the todo description when action.type = UPDATE_TODO_DESCRIPTION', t => {
   const stateBefore = [
     {
-      id: 1,
+      id: "T1",
       description: 'Learn Redux'
     },
     {
-      id: 2,
+      id: "T2",
       description: 'Go swimming'
     }
   ];
   const expected = [
     {
-      id: 1,
+      id: "T1",
       description: 'Learn Redux'
     },
     {
-      id: 2,
+      id: "T2",
       description: 'Clean apartment'
     }
   ];
   const action = actionUpdateTodoDescription({
-    id: 2,
+    id: "T2",
     description: 'Clean apartment' 
   });
   deepFreeze(stateBefore);

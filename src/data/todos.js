@@ -1,20 +1,20 @@
 export default [
   {
-    id: 1,
+    id: "T1",
     title: "Learn Redux",
     description: "Make use of Egghead, learnredux.com and redux documentation",
     status: "in progress",
     priority: "high"
   },
   {
-    id: 2,
+    id: "T2",
     title: "Cook Food",
     description: "Steak & Eggs",
     status: "todo",
     priority: "low"
   },
   {
-    id: 3,
+    id: "T3",
     title: "Buy Fuel",
     description: "",
     status: "done",

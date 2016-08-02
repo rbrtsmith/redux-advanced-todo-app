@@ -4,11 +4,11 @@ import getTodo from '../../src/utils/getTodo';
 
 test('It should return a single todo with a matching ID', t => {
   const todos = [
-    { id: 1 },
-    { id: 2 },
-    { id: 3 }
+    { id: "T1" },
+    { id: "T2" },
+    { id: "T3" }
   ];
-  const expected = { id: 2 };
-  const actual = getTodo(todos, 2);
+  const expected = { id: "T2" };
+  const actual = getTodo(todos, "T2");
   t.deepEqual(actual, expected);
 });

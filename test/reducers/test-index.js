@@ -2,8 +2,11 @@ import test from 'ava';
 
 import proxyquire from 'proxyquire';
 import sinon from 'sinon';
-import todos from '../../src/reducers/todos';
+
 import { routerReducer } from 'react-router-redux';
+
+import todos from '../../src/reducers/todos';
+import updateForms from '../../src/reducers/updateForms';
 
 test('It should return single combined reducer', t => {
   const stubbedCombineReducers = sinon.stub();
@@ -16,6 +19,7 @@ test('It should return single combined reducer', t => {
   t.true(
     stubbedCombineReducers.calledWith({
       todos,
+      updateForms,
       routing: routerReducer
     })
   );
