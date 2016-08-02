@@ -1,13 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 
-const Main = () => (
+import TodoCard from './TodoCard';
+
+const Main = ({ todos }) => (
   <div>
-    <h1>Main</h1>
-    <Link to="/single/foo">
-      To single
-    </Link>
+    <h2>Todos</h2>
+    <ul>
+      {todos.map(todo => <TodoCard key={todo.id} {...todo} />)}
+    </ul>
   </div>
 );
 
-export default Main;
+const mapStateToProps = state => ({
+  todos: state.todos
+});
+
+export default connect(
+  mapStateToProps
+)(Main);

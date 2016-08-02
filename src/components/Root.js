@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const Root = ({ children }) => (
   <div>
     <Link to="/">
-      <h1>Todo App</h1>
+      <h1>Advanced todos</h1>
     </Link>
     {children}
   </div>
