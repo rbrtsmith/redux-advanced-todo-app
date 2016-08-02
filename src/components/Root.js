@@ -4,10 +4,14 @@ import { Link } from 'react-router';
 const Root = ({ children }) => (
   <div>
     <Link to="/">
-      <h1>Todo App</h1>      
+      <h1>Todo App</h1>
     </Link>
     {children}
   </div>
 );
+
+Root.propTypes = {
+  children: React.Proptypes.node
+};
 
 export default Root;
