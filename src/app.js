@@ -7,14 +7,14 @@ import store, { history } from './store';
 
 import Root from './components/Root';
 import Main from './components/Main';
-import Single from './components/Single';
+import SingleContainer from './components/SingleContainer';
 import NotFound from './components/NotFound';
 
 const Base = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={Root}>
-        <Route path="single/:todoId" component={Single} />
+        <Route path="single/:todoId" component={SingleContainer} />
         <IndexRoute component={Main} />
       </Route>
       <Route path="*" component={Root}>

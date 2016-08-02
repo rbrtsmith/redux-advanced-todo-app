@@ -1,11 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 import getTodo from '../utils/getTodo';
 
-const Single = ({ todos, params }) => {
+
+const Single = ({ todos, params, removeTodo }) => {
   const todo = getTodo(todos, params.todoId);
   const { title, description, status, priority } = todo;
+  const onRemoveClick = () => {
+    removeTodo({
+      id: todo.id
+    });
+    browserHistory.push('/');
+  };
   return (
     <div>
       <h1>{title}</h1>
@@ -18,19 +25,18 @@ const Single = ({ todos, params }) => {
           <strong>priority: </strong>{priority}
         </li>
       </ul>
+      <button onClick={onRemoveClick}>
+        Remove
+      </button>
     </div>
   );
 };
 
 Single.propTypes = {
   todos: React.PropTypes.array.isRequired,
-  params: React.PropTypes.object.isRequired
+  params: React.PropTypes.object.isRequired,
+  removeTodo: React.PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-  todos: state.todos
-});
 
-export default connect(
-  mapStateToProps
-)(Single);
+export default Single;
