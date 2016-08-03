@@ -3,7 +3,7 @@ A More advanced Todo application.
 
 ##Technologies used:
 
-* React
+* [React](https://facebook.github.io/react/)
 * React Router
 * Redux
 * Sass
@@ -11,7 +11,7 @@ A More advanced Todo application.
 * ESNext (Babel)
 * Browsersync
 * Browserify
-* Ava
+* AVA
 * NYC
 * Webdriver
 * EsLint
