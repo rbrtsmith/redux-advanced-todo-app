@@ -6,9 +6,9 @@ A More advanced Todo application.
     * [React](https://facebook.github.io/react/)
     * [React Router](https://github.com/reactjs/react-router)
     * [Redux](http://redux.js.org/docs/introduction/Motivation.html)
-*Task runner
+* Task runner
     * [Gulp](http://gulpjs.com/)
-*Bundling(JS)
+* Bundling(JS)
     * [ESNext (Babel)](http://babeljs.io/)
     * [Browserify](http://browserify.org/)
 * Testing
