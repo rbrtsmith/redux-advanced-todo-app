@@ -1,0 +1,15 @@
+// Set a maximum width and center the main content.
+.o-site-wrap {
+  max-width: $site-wrap-max-width;
+  margin: 0 auto;
+}
+
+/*
+Adds padding, required if there's to be objects or components such as the
+grid system that contains negative margin equal to `$half-spacing-unit`.
+*/
+.o-site-wrap--padding {
+  max-width: ($site-wrap-max-width + ($spacing-unit * 2));
+  padding-left: $spacing-unit;
+  padding-right: $spacing-unit;
+}

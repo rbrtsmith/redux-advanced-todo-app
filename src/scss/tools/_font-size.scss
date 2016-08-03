@@ -1,0 +1,20 @@
+@mixin font-size($font-size) {
+  @if map-has-key($font-sizes, $font-size) {
+    @each $breakpoints in map-get($font-sizes, $font-size) {
+      @if nth($breakpoints, 1) == 'def' {
+        font-size: nth($breakpoints, 2);
+      }
+
+      @else {
+        @include respond-to(nth($breakpoints, 1)) {
+          font-size: nth($breakpoints, 2);
+        }
+      }
+    }
+  }
+
+  @else {
+    @warn 'Unfortunately, no value could be retrieved for `#{$font-size}`. '
+      + 'Please make sure it is defined in `$font-sizes` map.';
+  }
+}

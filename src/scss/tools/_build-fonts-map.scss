@@ -1,0 +1,19 @@
+@function build-fonts-map($font-keys) {
+  $map: ();
+
+  @each $key in $font-keys {
+    $map: map-merge(
+      $map,
+      (
+        $key: (
+          map-get($font-sizes, $key),
+          map-get($line-heights, $key),
+          map-get($font-families, $key),
+          map-get($font-weights, $key)
+        )
+      )
+    );
+  }
+
+  @return $map;
+}

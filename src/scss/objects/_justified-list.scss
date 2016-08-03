@@ -1,0 +1,18 @@
+@if $use-justified-list {
+  // Removes list styling, throws the times into a justified horizontal alignment.
+
+  .o-justified-list {
+    display: table;
+    width: 100%;
+    margin: 0;
+    table-layout: fixed;
+  }
+
+  .o-justified-list__item {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  // Close @if
+}

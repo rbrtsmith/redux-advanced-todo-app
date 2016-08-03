@@ -1,0 +1,19 @@
+@mixin visually-hidden($important) {
+  @if ($important) {
+    position: absolute !important;
+    height: 1px !important;
+    width: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+  }
+
+  @else {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+}

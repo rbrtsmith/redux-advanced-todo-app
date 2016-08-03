@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import TodoCard from './TodoCard';
 
 const Main = ({ todos }) => (
-  <div>
+  <div className="o-site-wrap o-site-wrap--padding">
     <h2>Todos</h2>
-    <ul>
+    <ul className="o-grid o-grid--matrix">
       {todos.map(todo => <TodoCard key={todo.id} {...todo} />)}
     </ul>
   </div>

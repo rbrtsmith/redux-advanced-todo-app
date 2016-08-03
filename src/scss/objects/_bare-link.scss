@@ -1,0 +1,15 @@
+@if $use-bare-link {
+  .o-bare-link {
+    text-decoration: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+
+    &:hover {
+      text-decoration: underline;
+      color: inherit;
+    }
+  }
+  // Close @if
+}
+

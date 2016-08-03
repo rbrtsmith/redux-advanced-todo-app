@@ -7,7 +7,7 @@
     "start": "gulp --watch",
     "build": "gulp build",
     "build:production": "gulp --release",
-    "lint": "gulp lint:js && gulp lint:scss",
+    "lint": "gulp lint:js && stylelint 'src/scss/**/*.scss' --syntax scss",
     "test": "nyc ava test --verbose"
   },
   "author": "Sainsbury's D&T",

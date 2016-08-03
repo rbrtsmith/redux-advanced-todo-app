@@ -1,0 +1,45 @@
+@if $use-flag {
+  /*
+  The flag object allows you to display textual content.
+  and image like content side by side, with the addition
+  of being able to vertically align them, the default being
+  middle.
+  */
+
+  .o-flag {
+    display: table;
+    width: 100%;
+  }
+
+  .o-flag__component,
+  .o-flag__body {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .o-flag__component--top,
+  .o-flag__body--top {
+    vertical-align: top;
+  }
+
+  .o-flag__component--bottom,
+  .o-flag__body--bottom {
+    vertical-align: bottom;
+  }
+
+  .o-flag__body {
+    width: 100%;
+  }
+
+  .o-flag__component--nowrap {
+    white-space: nowrap;
+  }
+
+  .o-flag__component > img {
+    display: block;
+    max-width: none;
+  }
+
+  // Close @if
+}
+

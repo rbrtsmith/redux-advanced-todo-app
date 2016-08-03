@@ -1,0 +1,27 @@
+@if $use-inline-list {
+  /*
+  Removes all margins, padding and list styling from a list.
+  and throws the child items into horizontal alignment.
+  */
+
+  .o-inline-list {
+    margin: 0;
+    list-style: none;
+  }
+
+  .o-inline-list__item {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+
+  // Spaced list items
+  .o-inline-list--spaced {
+    margin-left: -$spacing-unit;
+    > .o-inline-list__item {
+      padding-left: $spacing-unit;
+    }
+  }
+
+  // Close @if
+}

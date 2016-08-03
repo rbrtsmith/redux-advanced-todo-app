@@ -1,0 +1,98 @@
+$font-family-base: arial, sans-serif;
+$font-family-brand: arial, serif;
+
+
+$font-keys: (h1, h2, h3, h4, h5, h6, h7);
+
+$font-sizes: (
+  h1: (
+    def: 40px,
+    sm:  70px
+  ),
+  h2: (
+    def: 30px,
+    sm:  50px
+  ),
+  h3: (
+    def: 24px,
+    sm:  30px
+  ),
+  h4: (
+    def: 20px,
+    sm:  24px
+  ),
+  h5: (
+    def: 18px
+  ),
+  h6: (
+    def: 16px
+  ),
+  h7: (
+    def: 13px
+  )
+);
+
+$line-heights: (
+  h1: 1.1,
+  h2: 1.25,
+  h3: 1.3,
+  h4: 1.4,
+  h5: 1.5,
+  h6: 1.5,
+  h7: 1.5
+);
+
+$font-families: (
+  h1: $font-family-brand,
+  h2: $font-family-brand,
+  h3: $font-family-brand,
+  h4: $font-family-brand,
+  h5: $font-family-brand,
+  h6: $font-family-base,
+  h7: $font-family-base
+);
+
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$font-weights: (
+  h1: $font-weight-bold,
+  h2: $font-weight-bold,
+  h3: $font-weight-medium,
+  h4: $font-weight-medium,
+  h5: $font-weight-bold,
+  h6: $font-weight-bold,
+  h7: $font-weight-regular
+);
+
+// font (size and line-height).
+$font-size-base: 'h6';
+$line-height-base: 'h6';
+
+
+//
+
+
+// Log errors for unmatching maps.
+@if map-keys($font-sizes) != $font-keys {
+  @warn 'Unfortunately, the keys in `$font-sizes` do not match those found within `$font-keys` list.';
+}
+
+@if map-keys($line-heights) != $font-keys {
+  @warn 'Unfortunately, the keys in `$line-heights` do not match those found within `$font-keys` list.';
+}
+
+@if map-keys($font-families) != $font-keys {
+  @warn 'Unfortunately, the keys in `$font-families` do not match those found within `$font-keys` list.';
+}
+
+@if map-keys($font-weights) != $font-keys {
+  @warn 'Unfortunately, the keys in `$font-weights` do not match those found within `$font-keys` list.';
+}
+
+
+// Uses build-fonts-map function to generate a map with all of the typography maps listed above nested within, used
+// fot generating headlines to match up with the Luna styleguide.
+$fonts: build-fonts-map($font-keys);

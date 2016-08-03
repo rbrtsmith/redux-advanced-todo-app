@@ -4,7 +4,6 @@ import gutil from 'gulp-util';
 import gulpif from 'gulp-if';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
-import stylelint from 'gulp-stylelint';
 import eslint from 'gulp-eslint';
 import browserify from 'browserify';
 import watchify from 'watchify';
@@ -116,13 +115,6 @@ gulp.task('lint:js', () => {
 });
 
 
-gulp.task('lint:scss', () => {
-  return gulp.src(Paths.SASS_SRC).pipe(stylelint({
-    reporters: [
-      { formatter: 'string', console: true }
-    ]
-  }));
-});
 
 
 gulp.task('copy:html', () => {

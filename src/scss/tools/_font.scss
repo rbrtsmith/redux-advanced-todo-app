@@ -1,0 +1,14 @@
+@mixin font($font) {
+  @if map-has-key($fonts, $font) {
+    line-height: nth(map-get($fonts, $font), 2);
+    font-family: nth(map-get($fonts, $font), 3);
+    font-weight: nth(map-get($fonts, $font), 4);
+
+    @include font-size($font);
+  }
+
+  @else {
+    @warn 'Unfortunately, no value could be retrieved from `#{$font}`. '
+      + 'Please make sure it is defined in `$fonts` map.';
+  }
+}

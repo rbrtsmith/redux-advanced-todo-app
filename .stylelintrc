@@ -10,6 +10,7 @@
     "font-family-name-quotes": null,
     "number-leading-zero": "never",
     "value-list-comma-newline-after": null,
-    "no-invalid-double-slash-comments": null
+    "no-invalid-double-slash-comments": null,
+    "at-rule-no-unknown": null
   }
 }

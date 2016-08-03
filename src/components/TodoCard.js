@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const TodoCard = ({ title, id }) => (
-  <li>
-    <Link to={`/single/${id}`} >
-      <strong>{title}</strong>
-    </Link>
+  <li className="o-grid__item u-1/4">
+    <div className="c-card">
+      <Link to={`/single/${id}`} >
+        <strong>{title}</strong>
+      </Link>
+    </div>
   </li>
 );
 

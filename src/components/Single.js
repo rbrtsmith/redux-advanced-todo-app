@@ -23,56 +23,58 @@ const Single = ({ todos, params, removeTodo, updateForms, toggleUpdateFormVisibi
     });
   };
   return (
-    <div>
-      <EditableField
-        fieldName="title"
-        fieldValue={title}
-        onUpdateFieldClick={onUpdateFieldClick}
-        id={id}
-        updateForms={updateForms}
-      >
-        <h2>
-          {title}
-        </h2>
-      </EditableField>
-      {description &&
+    <div className="o-site-wrap o-site-wrap--padding">
+      <div className="c-card">
         <EditableField
-          fieldName="description"
-          fieldValue={description}
+          fieldName="title"
+          fieldValue={title}
           onUpdateFieldClick={onUpdateFieldClick}
           id={id}
           updateForms={updateForms}
         >
-          <p>{description}</p>
+          <h2>
+            {title}
+          </h2>
         </EditableField>
-      }
-      <ul>
-        <li>
+        {description &&
           <EditableField
-            fieldName="status"
-            fieldValue={status}
+            fieldName="description"
+            fieldValue={description}
             onUpdateFieldClick={onUpdateFieldClick}
             id={id}
             updateForms={updateForms}
           >
-            <strong>Status: </strong>{status}
+            <p>{description}</p>
           </EditableField>
-        </li>
-        <li>
-          <EditableField
-            fieldName="priority"
-            fieldValue={priority}
-            onUpdateFieldClick={onUpdateFieldClick}
-            id={id}
-            updateForms={updateForms}
-          >
-            <strong>Priority: </strong>{priority}
-          </EditableField>
-        </li>
-      </ul>
-      <button onClick={onRemoveClick}>
-        Remove
-      </button>
+        }
+        <ul>
+          <li>
+            <EditableField
+              fieldName="status"
+              fieldValue={status}
+              onUpdateFieldClick={onUpdateFieldClick}
+              id={id}
+              updateForms={updateForms}
+            >
+              <strong>Status: </strong>{status}
+            </EditableField>
+          </li>
+          <li>
+            <EditableField
+              fieldName="priority"
+              fieldValue={priority}
+              onUpdateFieldClick={onUpdateFieldClick}
+              id={id}
+              updateForms={updateForms}
+            >
+              <strong>Priority: </strong>{priority}
+            </EditableField>
+          </li>
+        </ul>
+        <button className="c-btn c-btn--md c-btn--brand" onClick={onRemoveClick}>
+          Remove
+        </button>
+      </div>
     </div>
   );
 };

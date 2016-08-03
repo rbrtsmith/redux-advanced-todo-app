@@ -1,0 +1,85 @@
+// #Fonts
+@if ($use-fonts) {
+  @each $key, $value in $fonts {
+    .u-#{$key} {
+      @include font($key);
+    }
+  }
+}
+
+
+// #Font-size
+@if ($use-font-size) {
+  @each $key, $values in $font-sizes {
+    .u-font-size-#{$key} {
+      @each $key, $value in $values {
+        @if $key == 'def' {
+          font-size: $value;
+        }
+
+        @else {
+          @include respond-to($key) {
+            font-size: $value;
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $use-font-styling {
+  .u-font-weight-regular {
+    font-weight: $font-weight-regular !important;
+  }
+
+  .u-font-weight-medium {
+    font-weight: $font-weight-medium !important;
+  }
+
+  .u-font-weight-bold {
+    font-weight: $font-weight-bold !important;
+  }
+
+
+  .u-text-decoration-underline {
+    text-decoration: underline !important;
+  }
+
+  .u-text-decoration-normal {
+    text-decoration: none !important;
+  }
+
+
+  .u-text-style-italic {
+    font-style: italic !important;
+  }
+
+  .u-font-style-normal {
+    font-style: normal !important;
+  }
+}
+
+@if $use-text-alignment {
+  .u-text-align-center {
+    text-align: center !important;
+  }
+
+  .u-text-align-right {
+    text-align: right !important;
+  }
+
+  .u-text-align-left {
+    text-align: left !important;
+  }
+}
+
+@if $use-font-family {
+  .u-font-family-base {
+    font-family: $font-family-base !important;
+  }
+
+  .u-font-family-brand {
+    font-family: $font-family-brand !important;
+  }
+}
+

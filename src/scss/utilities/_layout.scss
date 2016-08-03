@@ -1,0 +1,24 @@
+@if $use-display-block {
+  .u-display-block {
+    display: block !important;
+  }
+}
+
+@if $use-display-inline {
+  .u-display-inline {
+    display: inline !important;
+  }
+}
+
+@if $use-display-inline-block {
+  .u-display-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@if $use-center-block {
+  .u-center-block {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

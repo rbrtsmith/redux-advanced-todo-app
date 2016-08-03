@@ -1,0 +1,20 @@
+@if $use-matrix-list {
+  /* Spaces out unstyled list items on the horizontal
+  and vertical axis to form a matrix that tiles.
+  */
+
+  .o-matrix-list {
+    margin-bottom: -$spacing-unit;
+    margin-left: -$spacing-unit;
+    list-style: none;
+  }
+
+  .o-matrix-list__item {
+    display: inline-block;
+    padding-bottom: $spacing-unit;
+    padding-left: $spacing-unit;
+    vertical-align: middle;
+  }
+
+  // Close @if
+}

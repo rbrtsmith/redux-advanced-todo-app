@@ -1,0 +1,219 @@
+@if $use-grid {
+  // #Grid
+
+  // Amount of space between grid items
+  $grid-gutter-width: $spacing-unit;
+
+  // Large and small gutters
+  $gutter-lg-width: ($grid-gutter-width * 2);
+  $gutter-sm-width: ($grid-gutter-width / 2);
+
+  /*
+  In order to remove unwanted whitespace between grid items due to inline-blocks
+  the font-size of the grid is set to zero, then on the grid items themselves
+  the font-size will be given the value below - which should be equal to your
+  projects default font size.
+  Any headlines that are descendants of the `o-grid__item` will inherit their
+  respective set font-sizes.
+  */
+  $font-size-grid: map-get($font-sizes, $font-size-base);
+
+
+
+  /*
+  1. Ensure grid spans full width of parent.
+  2. Reset any margins and paddings.
+  3. Set a negative margin-left & right to create space for
+     `o-grid__item`s gutter.
+  4. Set a zero font-size to remove spacing on the `o-grid__item` children
+     caused by them having their display set to `inline-block`.
+  5. Remove any possible list styling.
+  */
+  .o-grid {
+    min-width: 100%; // [1]
+    margin: 0; // [2]
+    padding: 0; // [2]
+    margin-left: -$grid-gutter-width; // [3]
+    @if $use-zero-font-size-grid-fix {
+      font-size: 0; // [4]
+    }
+    list-style: none; // [5]
+  }
+
+  // Large gutters
+  @if $use-grid--gutter-lg {
+    .o-grid--gutter-lg {
+      margin-left: -$gutter-lg-width;
+    }
+
+    .o-grid--gutter-lg > .o-grid__item {
+      padding-left: $gutter-lg-width;
+    }
+  }
+
+  // Small gutters
+  @if $use-grid--gutter-sm {
+    .o-grid--gutter-sm {
+      margin-left: -$gutter-sm-width;
+    }
+
+    .o-grid--gutter-sm > .o-grid__item {
+      padding-left: $gutter-sm-width;
+    }
+  }
+
+  // Zero width gutters
+  @if $use-grid--no-gutter {
+    .o-grid--no-gutter {
+      margin-left: 0;
+    }
+
+    .o-grid--no-gutter > .o-grid__item {
+      padding-left: 0;
+    }
+  }
+
+  /*
+  1. Give grid items equal heights using flexbox.
+    Works for IE10+  IE9 will fallback to the default grid.
+  2. Fix for IE10 which requires children of flexbox-items to have a
+    maximum width of 100%.
+  */
+  @if $use-grid--equal-height { /* 1 */
+    .o-grid--equal-height,
+    .o-grid--equal-height > .o-grid__item,
+    .o-grid--equal-height--centered-content > .o-grid__item > * {
+      display: flex;
+
+      > * { /** [2] */
+        width: 100%;
+      }
+    }
+
+    /*
+    Allow equal height items to wrap, just as standard grid items do, when
+    a combined width of the grid-items is > 100%.
+    */
+    .o-grid--equal-height {
+      flex-wrap: wrap;
+    }
+
+    //Vertically center any content nested inside of equal-height grid items.
+    .o-grid--equal-height--centered-content > .o-grid__item > * {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  // Vertically align grid-items to the center
+  @if $use-grid--center {
+    .o-grid--center > .o-grid__item {
+      vertical-align: middle;
+    }
+  }
+
+  //Vertically align grid-items to the bottom
+  @if $use-grid--bottom {
+    .o-grid--bottom > .o-grid__item {
+      vertical-align: bottom;
+    }
+  }
+
+  //Reverse grid items on the horizontal axis.
+  @if $use-grid--reverse {
+    .o-grid--reverse {
+      direction: rtl;
+      text-align: left;
+
+      > .o-grid__item {
+        direction: ltr;
+        text-align: left;
+      }
+    }
+  }
+
+  /*
+  Give grid items a vertical gutter that is equal to
+  whatever horizontal gutter is applied to the grid.
+  */
+  @if $use-grid--matrix {
+    .o-grid--matrix {
+      margin-bottom: -$grid-gutter-width;
+    }
+
+    .o-grid--matrix > .o-grid__item {
+      margin-bottom: $grid-gutter-width;
+    }
+
+    // Increase vertical gutter for large horizontal gutters
+    @if $use-grid--gutter-lg {
+      .o-grid--gutter-lg {
+        margin-bottom: -$gutter-lg-width;
+      }
+
+      .o-grid--gutter-lg > .o-grid__item {
+        margin-bottom: $gutter-lg-width;
+      }
+    }
+
+    // Decrease vertical gutter for small horizontal gutters
+    @if $use-grid--gutter-sm {
+      .o-grid--gutter-sm {
+        margin-bottom: -$gutter-sm-width;
+      }
+
+      .o-grid--gutter-sm > .o-grid__item {
+        margin-bottom: $gutter-sm-width;
+      }
+    }
+
+    // Remove vertical gutter for zero horizontal gutters
+    @if $use-grid--no-gutter {
+      .o-grid--no-gutter {
+        margin-bottom: 0;
+      }
+
+      .o-grid--no-gutter > .o-grid__item {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  /*
+  1. Set display to relative to allow the push/pull classes to work
+     which are using left/right positioning values.
+  2. Set display to inline-block.  Rather than floating block elements that
+     you see on many other grid systems, inline-blocks have a number of
+     benefits such as:
+     - No clearfixing issues.
+     - Rows will tile nicely even if grid items are all different heights.
+     - You can vertically align grid items that are different heights.
+     - You can horizontally align grid items, when total width is <100%
+       using text-align on the parent 'grid' component.
+     - You can reverse the order of the grid items by using `grid--reverse`
+        which changes the direction property from right to left.
+  3. Set default width of 100%.
+  4. Prevent item from collapsing when empty.
+  5. Create the gutter.
+  6. When grid items are differing heights, align them to the top.
+  7. Prevent grid-items from inhering text-align properties set
+     One parent or ancestor nodes.
+  8. Inject the base font-size.  The grid items cannot inherit font-size
+     As the font-size on the parent `o-grid` component is set to zero to
+     overcome whitespace issues when using inline-block.
+  */
+  .o-grid__item {
+    position: relative; // [1]
+    display: inline-block; // [2]
+    width: 100%; // [3]
+    min-height: 1px; // [4]
+    padding-left: $grid-gutter-width; // [5]
+    vertical-align: top; // [6]
+    text-align: left; // |7]
+    @if $use-zero-font-size-grid-fix {
+      font-size: $font-size-grid; // [8]
+    }
+  }
+
+  // Close @if
+}

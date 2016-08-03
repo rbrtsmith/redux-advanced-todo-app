@@ -1,0 +1,41 @@
+/// Generates a media query based on the breakpoint passed in.
+/// @author Robert Smith
+/// @param {Breakpoint} $breakpoint - should match the breakpoints specified in the $breakpoints map.
+/// - Can accept prefixes for `min-` and `max-` for min/max width media querys, default is min-width.
+/// @example-useage @include respond-to('max-sm') {...} or default @include respond-to('md') {...}
+
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+
+  @else {
+    @if (str-index($breakpoint, 'max-')) {
+      $bp: str-replace($breakpoint, 'max-', '');
+
+      @if map-has-key($breakpoints, $bp) {
+        @media (max-width: #{(map-get($breakpoints, $bp)-1)}) {
+          @content;
+        }
+      }
+    }
+
+    @elseif (str-index($breakpoint, 'min-')) {
+      $bp: str-replace($breakpoint, 'min-', '');
+
+      @if map-has-key($breakpoints, $bp) {
+        @media (min-width: #{map-get($breakpoints, $bp)}) {
+          @content;
+        }
+      }
+    }
+
+    @else {
+      @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
+        + 'Please make sure it is defined in `$breakpoints` map.';
+    }
+  }
+}

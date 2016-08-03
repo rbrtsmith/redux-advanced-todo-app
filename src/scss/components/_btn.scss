@@ -1,0 +1,14 @@
+.c-btn {
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.c-btn--md {
+  padding: .5rem 3rem;
+}
+
+.c-btn--brand {
+  background: $color-brand;
+  color: white;
+}

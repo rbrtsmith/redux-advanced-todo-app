@@ -1,0 +1,21 @@
+
+// #Hidden
+@if $use-hidden {
+  .u-hidden {
+    display: none !important;
+  }
+}
+
+@if $use-visually-hidden {
+  .u-visually-hidden {
+    @include visually-hidden(true);
+  }
+}
+
+@if $use-circle {
+  .u-circle {
+    border-radius: 1000px !important;
+  }
+}
+
+

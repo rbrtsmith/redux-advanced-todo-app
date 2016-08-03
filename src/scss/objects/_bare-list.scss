@@ -1,0 +1,19 @@
+@if $use-bare-list {
+
+  // Removes all margins, padding and list styling from a list.
+  .o-bare-list {
+    margin: 0;
+    list-style: none;
+  }
+
+
+  // Spaced list items
+  .o-bare-list--spaced {
+    margin-bottom: -$spacing-unit;
+    > .o-bare-list__item {
+      padding-bottom: $spacing-unit;
+    }
+  }
+
+  // Close @if
+}
