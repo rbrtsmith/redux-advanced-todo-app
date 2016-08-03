@@ -5,10 +5,7 @@ import todos from '../../src/reducers/todos';
 
 import actionAddTodo from '../../src/actions/addTodo';
 import actionRemoveTodo from '../../src/actions/removeTodo';
-import actionUpdateTodoStatus from '../../src/actions/updateTodoStatus';
-import actionUpdateTodoTitle from '../../src/actions/updateTodoTitle';
-import actionUpdateTodoDescription from '../../src/actions/updateTodoDescription';
-import actionUpdateTodoPriority from '../../src/actions/updateTodoPriority';
+import actionUpdateTodoField from '../../src/actions/updateTodoField';
 
 
 
@@ -58,130 +55,58 @@ test('It should remove correct todo when action.type = REMOVE_TODO', t => {
 
 
 
-test('It should update the todo status when action.type = UPDATE_TODO_STATUS', t => {
+test('It should update the title field when fieldName=title and action.type=UPDATE_TODO_FIELD', t => {
   const stateBefore = [
     {
       id: "T1",
-      status: 'todo'
+      title: 'Wash car'
     },
     {
       id: "T2",
+      title: 'Go shopping'
+    }
+  ];
+  const expected = [
+    {
+      id: "T1",
+      title: 'Wash car'
+    },
+    {
+      id: "T2",
+      title: 'Go to the cinema'
+    }
+  ];
+  const action = actionUpdateTodoField({
+    id: "T2",
+    fieldName: "title",
+    fieldValue: 'Go to the cinema' 
+  });
+  deepFreeze(stateBefore);
+  const actual = todos(stateBefore, action);
+
+  t.deepEqual(actual, expected);
+});
+
+
+
+
+test('It should update the status field when fieldName=status and action.type=UPDATE_TODO_FIELD', t => {
+  const stateBefore = [
+    {
+      id: "T1",
       status: 'todo'
     }
   ];
   const expected = [
     {
       id: "T1",
-      status: 'todo'
-    },
-    {
-      id: "T2",
       status: 'in progress'
     }
   ];
-  const action = actionUpdateTodoStatus({
-    id: "T2",
-    status: 'in progress' 
-  });
-  deepFreeze(stateBefore);
-  const actual = todos(stateBefore, action);
-
-  t.deepEqual(actual, expected);
-});
-
-
-
-test('It should update the todo title when action.type = UPDATE_TODO_TITLE', t => {
-  const stateBefore = [
-    {
-      id: "T1",
-      title: 'Learn Redux'
-    },
-    {
-      id: "T2",
-      title: 'Go swimming'
-    }
-  ];
-  const expected = [
-    {
-      id: "T1",
-      title: 'Learn Redux'
-    },
-    {
-      id: "T2",
-      title: 'Clean apartment'
-    }
-  ];
-  const action = actionUpdateTodoTitle({
-    id: "T2",
-    title: 'Clean apartment' 
-  });
-  deepFreeze(stateBefore);
-  const actual = todos(stateBefore, action);
-
-  t.deepEqual(actual, expected);
-});
-
-
-
-
-test('It should update the todo priority when action.type = UPDATE_TODO_PRIORITY', t => {
-  const stateBefore = [
-    {
-      id: "T1",
-      priority: 'Low'
-    },
-    {
-      id: "T2",
-      priority: 'Low'
-    }
-  ];
-  const expected = [
-    {
-      id: "T1",
-      priority: 'High'
-    },
-    {
-      id: "T2",
-      priority: 'Low'
-    }
-  ];
-  const action = actionUpdateTodoPriority({
+  const action = actionUpdateTodoField({
     id: "T1",
-    priority: 'High' 
-  });
-  deepFreeze(stateBefore);
-  const actual = todos(stateBefore, action);
-
-  t.deepEqual(actual, expected);
-});
-
-
-
-test('It should update the todo description when action.type = UPDATE_TODO_DESCRIPTION', t => {
-  const stateBefore = [
-    {
-      id: "T1",
-      description: 'Learn Redux'
-    },
-    {
-      id: "T2",
-      description: 'Go swimming'
-    }
-  ];
-  const expected = [
-    {
-      id: "T1",
-      description: 'Learn Redux'
-    },
-    {
-      id: "T2",
-      description: 'Clean apartment'
-    }
-  ];
-  const action = actionUpdateTodoDescription({
-    id: "T2",
-    description: 'Clean apartment' 
+    fieldName: "status",
+    fieldValue: 'in progress' 
   });
   deepFreeze(stateBefore);
   const actual = todos(stateBefore, action);

@@ -19,7 +19,7 @@ test('It should toggle the appropiate field when action.type = TOGGLE_UPDATE_FOR
   };
   const action = actionToggleUpdateFormVisibility({
     todoId: "T1",
-    field: "title"
+    fieldName: "title"
   });
   deepFreeze(stateBefore);
   const actual = updateForms(stateBefore, action);
@@ -37,7 +37,7 @@ test('It should toggle the appropiate field when action.type = TOGGLE_UPDATE_FOR
   };
   const action = actionToggleUpdateFormVisibility({
     todoId: "T1",
-    field: "description"
+    fieldName: "description"
   });
   deepFreeze(stateBefore);
   const actual = updateForms(stateBefore, action);
@@ -69,7 +69,7 @@ test('It should toggle the appropiate field when action.type = TOGGLE_UPDATE_FOR
   };
   const action = actionToggleUpdateFormVisibility({
     todoId: "T3",
-    field: "priority"
+    fieldName: "priority"
   });
   deepFreeze(stateBefore);
   const actual = updateForms(stateBefore, action);

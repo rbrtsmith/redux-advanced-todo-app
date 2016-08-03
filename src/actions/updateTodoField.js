@@ -1,4 +1,4 @@
 export default payload => ({
-  type: 'UPDATE_TODO_DESCRIPTION',
+  type: 'UPDATE_TODO_FIELD',
   payload
 });

@@ -1,6 +1,6 @@
-const toggleVisibility = (state, { todoId, field }) => ({
+const toggleVisibility = (state, { todoId, fieldName }) => ({
   ...state[todoId],
-  [field]: state[todoId] && state[todoId][field] ? false : true
+  [fieldName]: !(state[todoId] && state[todoId][fieldName])
 });
 
 const updateForms = (state = {}, action) => {

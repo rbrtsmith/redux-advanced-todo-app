@@ -7,41 +7,12 @@ const createTodo = ({ id, title, description, priority }) => ({
 
 const removeTodo = (todo, { id }) => todo.id !== id;
 
-const updateTodoStatus = (todo, { id, status }) => {
-  if (todo.id === id) {
-    return {
-      ...todo,
-      status
-    };
-  }
-  return todo;
-};
 
-const updateTodoTitle = (todo, { id, title }) => {
+const updateTodoField = (todo, { id, fieldName, fieldValue }) => {
   if (todo.id === id) {
     return {
       ...todo,
-      title
-    };
-  }
-  return todo;
-};
-
-const updateTodoDescription = (todo, { id, description }) => {
-  if (todo.id === id) {
-    return {
-      ...todo,
-      description
-    };
-  }
-  return todo;
-};
-
-const updateTodoPriority = (todo, { id, priority }) => {
-  if (todo.id === id) {
-    return {
-      ...todo,
-      priority
+      [fieldName]: fieldValue
     };
   }
   return todo;
@@ -56,14 +27,8 @@ const todos = (state = [], action) => {
       ];
     case 'REMOVE_TODO':
       return state.filter(todo => removeTodo(todo, action.payload));
-    case 'UPDATE_TODO_STATUS':
-      return state.map(todo => updateTodoStatus(todo, action.payload));
-    case 'UPDATE_TODO_TITLE':
-      return state.map(todo => updateTodoTitle(todo, action.payload));
-    case 'UPDATE_TODO_DESCRIPTION':
-      return state.map(todo => updateTodoDescription(todo, action.payload));
-    case 'UPDATE_TODO_PRIORITY':
-      return state.map(todo => updateTodoPriority(todo, action.payload));
+    case 'UPDATE_TODO_FIELD':
+      return state.map(todo => updateTodoField(todo, action.payload));
     default:
       return state;
   }

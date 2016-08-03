@@ -1,14 +1,14 @@
 import test from 'ava';
 
-import updateTodoDescription from '../../src/actions/updateTodoDescription';
+import updateTodoField from '../../src/actions/updateTodoField';
 
 test('It should return an object containing the action type and payload', t => {
   const expected = {
-    type: 'UPDATE_TODO_DESCRIPTION',
+    type: 'UPDATE_TODO_FIELD',
     payload: {}
   };
 
-  const actual = updateTodoDescription({});
+  const actual = updateTodoField({});
 
   t.deepEqual(actual, expected);
 });

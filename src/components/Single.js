@@ -3,52 +3,71 @@ import { browserHistory } from 'react-router';
 
 import getTodo from '../utils/getTodo';
 
-import UpdateFormContainer from './UpdateFormContainer';
+import EditableField from './EditableField';
+
 
 const Single = ({ todos, params, removeTodo, updateForms, toggleUpdateFormVisibility }) => {
   const todo = getTodo(todos, params.todoId);
-  const { title, description, status, priority } = todo;
+  const { title, description, status, priority, id } = todo;
   const onRemoveClick = () => {
     removeTodo({
-      id: todo.id
+      id
     });
     browserHistory.push('/');
   };
-  const onUpdateTitleClick = e => {
+  const onUpdateFieldClick = (e, fieldName) => {
     e.preventDefault();
     toggleUpdateFormVisibility({
-      todoId: todo.id,
-      field: 'title'
+      todoId: id,
+      fieldName
     });
   };
-  const Title = () => (
-    <h2 className="contains-edit">
-      {title}
-      <a href="#" onClick={onUpdateTitleClick} className="contains-edit__link">
-        Edit
-      </a>
-    </h2>
-  );
   return (
     <div>
-      {
-        updateForms[todo.id] && updateForms[todo.id].title ?
-          <UpdateFormContainer
-            field="title"
-            fieldValue={title}
-            toggleUpdateFormVisibility={toggleUpdateFormVisibility}
-            todoId={todo.id}
-          />
-        :
-          <Title />
+      <EditableField
+        fieldName="title"
+        fieldValue={title}
+        onUpdateFieldClick={onUpdateFieldClick}
+        id={id}
+        updateForms={updateForms}
+      >
+        <h2>
+          {title}
+        </h2>
+      </EditableField>
+      {description &&
+        <EditableField
+          fieldName="description"
+          fieldValue={description}
+          onUpdateFieldClick={onUpdateFieldClick}
+          id={id}
+          updateForms={updateForms}
+        >
+          <p>{description}</p>
+        </EditableField>
       }
-      {description && <p>{description}</p>}
       <ul>
         <li>
-          <strong>Status: </strong>{status}
+          <EditableField
+            fieldName="status"
+            fieldValue={status}
+            onUpdateFieldClick={onUpdateFieldClick}
+            id={id}
+            updateForms={updateForms}
+          >
+            <strong>Status: </strong>{status}
+          </EditableField>
         </li>
         <li>
-          <strong>priority: </strong>{priority}
+          <EditableField
+            fieldName="priority"
+            fieldValue={priority}
+            onUpdateFieldClick={onUpdateFieldClick}
+            id={id}
+            updateForms={updateForms}
+          >
+            <strong>Priority: </strong>{priority}
+          </EditableField>
         </li>
       </ul>
       <button onClick={onRemoveClick}>

@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 
-import updateTodoTitle from '../actions/updateTodoTitle';
+import updateTodoField from '../actions/updateTodoField';
 
 import UpdateForm from './UpdateForm';
 
 
 const mapDispatchToProps = dispatch => ({
-  updateTodoTitle(payload) {
-    dispatch(updateTodoTitle(payload));
+  updateTodoField(payload) {
+    dispatch(updateTodoField(payload));
   },
 });
 
