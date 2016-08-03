@@ -9,12 +9,14 @@ import Root from './components/Root';
 import Main from './components/Main';
 import SingleContainer from './components/SingleContainer';
 import NotFound from './components/NotFound';
+import AddTodoContainer from './components/AddTodoContainer';
 
 const Base = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={Root}>
         <Route path="single/:todoId" component={SingleContainer} />
+        <Route path="add-todo" component={AddTodoContainer} />
         <IndexRoute component={Main} />
       </Route>
       <Route path="*" component={Root}>

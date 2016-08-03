@@ -23,7 +23,31 @@ test('It should add a todo when action.type = ADD_TODO ', t => {
       id: "T1",
       title: 'Learn Redux',
       description: 'Hello world',
-      priority: 'high'
+      priority: 'high',
+      status: 'todo'
+    }
+  ];
+  deepFreeze(stateBefore);
+  const actual = todos(stateBefore, action);
+
+  t.deepEqual(actual, expected);
+});
+
+test('It should add a todo when action.type = ADD_TODO and insert a default priority when blank ', t => {
+  const stateBefore = [{}];
+  const action = actionAddTodo({
+    id: "T1",
+    title: 'Learn Redux',
+    description: 'Hello world'
+  })
+  const expected = [
+    {},
+    {
+      id: "T1",
+      title: 'Learn Redux',
+      description: 'Hello world',
+      priority: 'low',
+      status: 'todo'
     }
   ];
   deepFreeze(stateBefore);

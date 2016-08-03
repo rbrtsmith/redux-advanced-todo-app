@@ -2,6 +2,8 @@
   display: inline-block;
   text-align: center;
   font-weight: bold;
+  border-radius: 3px;
+  text-decoration: none;
 }
 
 .c-btn--md {
@@ -11,4 +13,10 @@
 .c-btn--brand {
   background: $color-brand;
   color: white;
+
+  &:hover,
+  &:focus {
+    color: white;
+    background: lighten($color-brand, 10%);
+  }
 }

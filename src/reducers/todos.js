@@ -2,7 +2,8 @@ const createTodo = ({ id, title, description, priority = 'low' }) => ({
   id,
   title,
   description,
-  priority
+  priority,
+  status: 'todo'
 });
 
 const removeTodo = (todo, { id }) => todo.id !== id;
