@@ -1,4 +1,4 @@
-const createTodo = ({ id, title, description, priority }) => ({
+const createTodo = ({ id, title, description, priority = 'low' }) => ({
   id,
   title,
   description,

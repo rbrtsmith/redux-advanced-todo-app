@@ -24,7 +24,7 @@ const Single = ({ todos, params, removeTodo, updateForms, toggleUpdateFormVisibi
   };
   return (
     <div className="o-site-wrap o-site-wrap--padding">
-      <div className="c-card">
+      <div className={`c-card c-card--${priority}`}>
         <EditableField
           fieldName="title"
           fieldValue={title}
