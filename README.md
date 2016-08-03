@@ -15,7 +15,7 @@ A More advanced Todo application.
     * [AVA](https://github.com/avajs/ava)
     * [Istanbul-NYC](https://github.com/istanbuljs/nyc)
     * [Webdriver/io](http://webdriver.io/)
-*Linting
+* Linting
     * [EsLint](http://eslint.org/)
     * [Stylelint](https://github.com/stylelint/stylelint)
 * Styling
