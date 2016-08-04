@@ -2,7 +2,16 @@ import React from 'react';
 
 import UpdateFormContainer from './UpdateFormContainer';
 
-const EditableField = ({ children, fieldName, fieldType, fieldValue, selectOptions, onUpdateFieldClick, id, updateForms }) => (
+const EditableField = ({
+  children,
+  fieldName,
+  fieldType,
+  fieldValue,
+  selectOptions,
+  onUpdateFieldClick,
+  id,
+  updateForms
+}) => (
   <div>
     <div className="contains-edit">
       {
