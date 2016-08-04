@@ -1,20 +1,16 @@
 import React from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
+import moment from 'moment';
 
 import getTodo from '../utils/getTodo';
 
 import EditableField from './EditableField';
+import RemoveTodoContainer from './RemoveTodoContainer';
 
 
-const Single = ({ todos, params, removeTodo, updateForms, toggleUpdateFormVisibility }) => {
+const Single = ({ todos, params, updateForms, toggleUpdateFormVisibility }) => {
   const todo = getTodo(todos, params.todoId);
-  const { title, description, status, priority, id } = todo;
-  const onRemoveClick = () => {
-    removeTodo({
-      id
-    });
-    browserHistory.push('/');
-  };
+  const { title, description, status, priority, id, dateAdded } = todo;
   const onUpdateFieldClick = (e, fieldName) => {
     e.preventDefault();
     toggleUpdateFormVisibility({
@@ -76,19 +72,14 @@ const Single = ({ todos, params, removeTodo, updateForms, toggleUpdateFormVisibi
               <strong>Priority: </strong>{priority}
             </EditableField>
           </li>
-        </ul>
-        <ul className="o-bare-list o-bare-list--spaced">
-          <li className="o-bare-list__item">
-            <button className="c-btn c-btn--md c-btn--brand" onClick={onRemoveClick}>
-              Remove
-            </button>
-          </li>
-          <li className="o-bare-list__item">
-            <Link to="/" className="c-btn c-btn--md c-btn--brand">
-              &larr; Go back
-            </Link>
+          <li>
+            <strong>Date added: </strong>{moment(dateAdded).format('MMMM Do YYYY, hh:mm')}
           </li>
         </ul>
+        <Link to="/" className="c-btn c-btn--md c-btn--brand">
+          &larr; Go back
+        </Link>
+        <RemoveTodoContainer id={id} />
       </div>
     </div>
   );
@@ -97,7 +88,6 @@ const Single = ({ todos, params, removeTodo, updateForms, toggleUpdateFormVisibi
 Single.propTypes = {
   todos: React.PropTypes.array.isRequired,
   params: React.PropTypes.object.isRequired,
-  removeTodo: React.PropTypes.func.isRequired,
   toggleUpdateFormVisibility: React.PropTypes.func.isRequired,
   updateForms: React.PropTypes.object
 };

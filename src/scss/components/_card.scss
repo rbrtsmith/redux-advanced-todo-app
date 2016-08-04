@@ -1,5 +1,6 @@
 .c-card {
-  padding: $spacing-unit;
+  position: relative;
+  padding: ($spacing-unit * 2) $spacing-unit;
   background: white;
   box-shadow: 0 0 3px 0 rgba(black, .2);
 }
@@ -11,3 +12,13 @@
 .c-card--medium {
   background: #fffcdb;
 }
+
+.c-card__remove {
+  opacity: 0;
+  transition: all .2s;
+}
+
+.c-card:hover .c-card__remove {
+  opacity: 1;
+}
+

@@ -20,3 +20,21 @@
     background: lighten($color-brand, 10%);
   }
 }
+
+.c-btn--remove {
+  $size: 28px;
+  position: absolute;
+  top: ($spacing-unit / 2);
+  right: ($spacing-unit / 2);
+  width: $size;
+  height: $size;
+  line-height: $size;
+  border-radius: 50%;
+  background: #444444;
+  color: white;
+
+  &:hover,
+  &:focus {
+    background: #111111;
+  }
+}
