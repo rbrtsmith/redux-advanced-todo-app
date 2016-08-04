@@ -13,6 +13,7 @@ A More advanced Todo application.
     * [Browserify](http://browserify.org/)
 * Testing
     * [AVA](https://github.com/avajs/ava)
+    * [Enzyme](https://github.com/airbnb/enzyme)
     * [Istanbul-NYC](https://github.com/istanbuljs/nyc)
     * [Webdriver/io](http://webdriver.io/)
 * Linting
