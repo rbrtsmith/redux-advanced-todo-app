@@ -2,7 +2,7 @@ import React from 'react';
 
 import UpdateFormContainer from './UpdateFormContainer';
 
-const EditableField = ({ children, fieldName, fieldValue, onUpdateFieldClick, id, updateForms }) => (
+const EditableField = ({ children, fieldName, fieldType, fieldValue, selectOptions, onUpdateFieldClick, id, updateForms }) => (
   <div>
     <div className="contains-edit">
       {
@@ -10,6 +10,8 @@ const EditableField = ({ children, fieldName, fieldValue, onUpdateFieldClick, id
           <UpdateFormContainer
             fieldName={fieldName}
             fieldValue={fieldValue}
+            fieldType={fieldType}
+            selectOptions={selectOptions}
             toggleUpdateFormVisibility={onUpdateFieldClick}
             id={id}
           />
@@ -29,9 +31,11 @@ EditableField.propTypes = {
   children: React.PropTypes.node.isRequired,
   fieldName: React.PropTypes.string.isRequired,
   fieldValue: React.PropTypes.string.isRequired,
+  fieldType: React.PropTypes.string.isRequired,
   onUpdateFieldClick: React.PropTypes.func.isRequired,
   updateForms: React.PropTypes.object.isRequired,
-  id: React.PropTypes.string.isRequired
+  id: React.PropTypes.string.isRequired,
+  selectOptions: React.PropTypes.array
 };
 
 export default EditableField;

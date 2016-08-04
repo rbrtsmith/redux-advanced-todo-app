@@ -54,12 +54,11 @@ const AddTodo = ({ publishNewTodo }) => {
             <li className="o-bare-list__item">
               <label>
                 <div>Priority:</div>
-                <input
-                  type="text"
-                  ref={node => { priority = node; }}
-                  name="priority"
-                  className="text-input"
-                />
+                <select defaultValue="low" ref={node => { priority = node; }}>
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
               </label>
             </li>
             <li className="o-bare-list__item">

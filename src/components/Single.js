@@ -1,5 +1,5 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 import getTodo from '../utils/getTodo';
 
@@ -28,6 +28,7 @@ const Single = ({ todos, params, removeTodo, updateForms, toggleUpdateFormVisibi
         <EditableField
           fieldName="title"
           fieldValue={title}
+          fieldType="text"
           onUpdateFieldClick={onUpdateFieldClick}
           id={id}
           updateForms={updateForms}
@@ -40,6 +41,7 @@ const Single = ({ todos, params, removeTodo, updateForms, toggleUpdateFormVisibi
           <EditableField
             fieldName="description"
             fieldValue={description}
+            fieldType="text"
             onUpdateFieldClick={onUpdateFieldClick}
             id={id}
             updateForms={updateForms}
@@ -52,6 +54,8 @@ const Single = ({ todos, params, removeTodo, updateForms, toggleUpdateFormVisibi
             <EditableField
               fieldName="status"
               fieldValue={status}
+              fieldType="select"
+              selectOptions={['todo', 'in progress', 'done']}
               onUpdateFieldClick={onUpdateFieldClick}
               id={id}
               updateForms={updateForms}
@@ -63,6 +67,8 @@ const Single = ({ todos, params, removeTodo, updateForms, toggleUpdateFormVisibi
             <EditableField
               fieldName="priority"
               fieldValue={priority}
+              fieldType="select"
+              selectOptions={['low', 'medium', 'high']}
               onUpdateFieldClick={onUpdateFieldClick}
               id={id}
               updateForms={updateForms}
@@ -71,9 +77,18 @@ const Single = ({ todos, params, removeTodo, updateForms, toggleUpdateFormVisibi
             </EditableField>
           </li>
         </ul>
-        <button className="c-btn c-btn--md c-btn--brand" onClick={onRemoveClick}>
-          Remove
-        </button>
+        <ul className="o-bare-list o-bare-list--spaced">
+          <li className="o-bare-list__item">
+            <button className="c-btn c-btn--md c-btn--brand" onClick={onRemoveClick}>
+              Remove
+            </button>
+          </li>
+          <li className="o-bare-list__item">
+            <Link to="/" className="c-btn c-btn--md c-btn--brand">
+              &larr; Go back
+            </Link>
+          </li>
+        </ul>
       </div>
     </div>
   );
