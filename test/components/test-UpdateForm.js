@@ -62,6 +62,28 @@ test('It calls updateTodoField when a text input changes', t => {
 });
 
 
+test('It calls toggleUpdateFormVisibility when an onBlur event occurs on the text field', t => {
+  const stubbedToggleUpdateFormVisibility = sinon.stub();
+  const props = {
+    fieldValue: 'Learn Redux',
+    fieldName: 'title',
+    fieldType: 'text',
+    toggleUpdateFormVisibility: stubbedToggleUpdateFormVisibility,
+    updateTodoField(){},
+    id: 'T1'
+  };
+  const $ = shallow(<UpdateForm {...props} />);
+  const e = {
+    target: {
+      value: 'Learn Redux!'
+    }
+  };
+  $.find('input[type="text"]').prop('onBlur')(e);
+
+  t.true(stubbedToggleUpdateFormVisibility.calledWith(e));
+});
+
+
 test('It calls updateTodoField & toggleUpdateFormVisibility when a text input changes', t => {
   const stubbedUpdateTodoField = sinon.stub();
   const stubbedToggleUpdateFormVisibility = sinon.stub();

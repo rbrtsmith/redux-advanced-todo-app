@@ -4,6 +4,8 @@ import { browserHistory } from 'react-router';
 
 import addTodo from '../actions/addTodo';
 import updateAddTodoFormFieldValue from '../actions/updateAddTodoFormFieldValue';
+import resetAddTodoFormFieldValue from '../actions/resetAddTodoFormFieldValue';
+
 
 import AddTodo from './AddTodo';
 
@@ -23,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
       payload.priority = priority;
     }
     dispatch(addTodo(payload));
-    // Add functionality to clear all form fields.
+    dispatch(resetAddTodoFormFieldValue());
     browserHistory.push('/');
   },
   updateAddTodoFormFieldValue(field, value) {
