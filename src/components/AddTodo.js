@@ -41,6 +41,7 @@ const AddTodo = ({ publishNewTodo, addTodoFormFieldValues, updateAddTodoFormFiel
             <label>
               <div>Priority:</div>
               <select
+                name="priority"
                 value={addTodoFormFieldValues.priority}
                 onChange={(e) => updateAddTodoFormFieldValue('priority', e.target.value)}
               >

@@ -57,7 +57,7 @@
     "gulp-svgstore": "^6.0.0",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
-    "jsdom": "^9.2.1",
+    "jsdom": "^9.4.1",
     "nyc": "^7.1.0",
     "path": "^0.12.7",
     "proxyquire": "^1.7.10",
