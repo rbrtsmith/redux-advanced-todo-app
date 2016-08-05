@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import { Link } from 'react-router';
 
@@ -40,10 +39,4 @@ Main.propTypes = {
   todos: React.PropTypes.array.isRequired
 };
 
-const mapStateToProps = state => ({
-  todos: state.todos
-});
-
-export default connect(
-  mapStateToProps
-)(Main);
+export default Main;

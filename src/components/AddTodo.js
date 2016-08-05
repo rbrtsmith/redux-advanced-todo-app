@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 
 const AddTodo = ({ publishNewTodo }) => {
   let title;
@@ -12,19 +12,7 @@ const AddTodo = ({ publishNewTodo }) => {
         <h2>Add new Todo</h2>
         <form
           className="u-push-bottom"
-          onSubmit={e => {
-            e.preventDefault();
-            const payload = {
-              id: `T${+new Date()}`,
-              title: title.value,
-              description: description.value,
-            };
-            if (priority.value) {
-              payload.priority = priority.value;
-            }
-            publishNewTodo(payload);
-            browserHistory.push('/');
-          }}
+          onSubmit={e => publishNewTodo(e, title.value, description.value, priority.value)}
         >
           <ul className="o-bare-list o-bare-list--spaced">
             <li className="o-bare-list__item">

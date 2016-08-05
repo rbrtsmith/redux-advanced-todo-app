@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store, { history } from './store';
 
 import Root from './components/Root';
-import Main from './components/Main';
+import MainContainer from './components/MainContainer';
 import SingleContainer from './components/SingleContainer';
 import NotFound from './components/NotFound';
 import AddTodoContainer from './components/AddTodoContainer';
@@ -17,7 +17,7 @@ const Base = (
       <Route path="/" component={Root}>
         <Route path="single/:todoId" component={SingleContainer} />
         <Route path="add-todo" component={AddTodoContainer} />
-        <IndexRoute component={Main} />
+        <IndexRoute component={MainContainer} />
       </Route>
       <Route path="*" component={Root}>
         <IndexRoute component={NotFound} />
