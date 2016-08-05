@@ -5,7 +5,7 @@ import sinon from 'sinon';
 
 import NotFound from '../../src/components/NotFound';
 
-test('<NotFound /> It renders the location pathname', t => {
+test('It renders the location pathname', t => {
   const $ = shallow(<NotFound location={{ pathname: '/todo/foo'}} history={{}} />);
 
   const expected = true;
@@ -15,7 +15,7 @@ test('<NotFound /> It renders the location pathname', t => {
 });
 
 
-test('<NotFound /> It calls the goBack method on the history object when go back button is clicked', t => {
+test('It calls the goBack method on the history object when go back button is clicked', t => {
   const stubbedGoBack = sinon.stub();
   const history = {
     goBack: stubbedGoBack

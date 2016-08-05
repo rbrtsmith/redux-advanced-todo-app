@@ -6,10 +6,12 @@ import rootReducer from './reducers/index';
 
 import todos from './data/todos';
 import updateForms from './data/updateForms';
+import addTodoFormFieldValues from './data/addTodoFormFieldValues';
 
 const defaultState = {
   todos,
-  updateForms
+  updateForms,
+  addTodoFormFieldValues
 };
 
 

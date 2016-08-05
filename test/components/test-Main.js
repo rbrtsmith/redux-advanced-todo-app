@@ -5,11 +5,11 @@ import { shallow } from 'enzyme';
 import Main from '../../src/components/Main';
 import TodoList from '../../src/components/TodoList';
 
-test('<Main /> It renders three <TodoList /> components', t => {
+test('It renders three <TodoList /> components', t => {
   const $ = shallow(<Main todos={[]} />);
 
   const expected = 3;
   const actual = $.find(TodoList).length;
 
-  t.is(actual, expected);
+  t.deepEqual(actual, expected);
 });

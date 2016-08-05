@@ -8,7 +8,7 @@ class UpdateForm extends React.Component {
   render() {
     const { fieldValue, fieldName, fieldType, selectOptions, toggleUpdateFormVisibility, updateTodoField, id } = this.props;
     return (
-      <form onSubmit={e => toggleUpdateFormVisibility(e, fieldName)}>
+      <form onSubmit={e => toggleUpdateFormVisibility(e)}>
         {
           fieldType === 'text' ?
             <input
@@ -16,24 +16,16 @@ class UpdateForm extends React.Component {
               className="text-input"
               ref="input"
               value={fieldValue}
-              onChange={() => updateTodoField({
-                id,
-                fieldName,
-                fieldValue: this.refs.input.value
-              })}
-              onBlur={e => toggleUpdateFormVisibility(e, fieldName)}
+              onChange={e => updateTodoField(id, fieldName, e.target.value)}
+              onBlur={e => toggleUpdateFormVisibility(e)}
             />
           :
             <select
               defaultValue={fieldValue}
               ref="input"
               onChange={e => {
-                updateTodoField({
-                  id,
-                  fieldName,
-                  fieldValue: this.refs.input.value
-                });
-                toggleUpdateFormVisibility(e, fieldName);
+                updateTodoField(id, fieldName, e.target.value);
+                toggleUpdateFormVisibility(e);
               }}
             >
               {selectOptions.map((option, i) => <option key={i} value={option}>{option}</option>)}

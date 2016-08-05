@@ -7,6 +7,8 @@ import { routerReducer } from 'react-router-redux';
 
 import todos from '../../src/reducers/todos';
 import updateForms from '../../src/reducers/updateForms';
+import addTodoFormFieldValues from '../../src/reducers/addTodoFormFieldValues';
+
 
 test('It should return single combined reducer', t => {
   const stubbedCombineReducers = sinon.stub();
@@ -20,6 +22,7 @@ test('It should return single combined reducer', t => {
     stubbedCombineReducers.calledWith({
       todos,
       updateForms,
+      addTodoFormFieldValues,
       routing: routerReducer
     })
   );

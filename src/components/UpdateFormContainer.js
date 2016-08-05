@@ -6,9 +6,13 @@ import UpdateForm from './UpdateForm';
 
 
 const mapDispatchToProps = dispatch => ({
-  updateTodoField(payload) {
-    dispatch(updateTodoField(payload));
-  },
+  updateTodoField(id, fieldName, fieldValue) {
+    dispatch(updateTodoField({
+      id,
+      fieldName,
+      fieldValue
+    }));
+  }
 });
 
 export default connect(

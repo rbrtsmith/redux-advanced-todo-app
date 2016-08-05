@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 
 import Root from '../../src/components/Root';
 
-test('<Root /> it renders children', t => {
+test('It renders children', t => {
   const $ = shallow(
     <Root>
       <div>

@@ -8,9 +8,9 @@ const EditableField = ({
   fieldType,
   fieldValue,
   selectOptions,
-  onUpdateFieldClick,
   id,
-  updateForms
+  updateForms,
+  toggleUpdateFormVisibility
 }) => (
   <div>
     <div className="contains-edit">
@@ -21,13 +21,13 @@ const EditableField = ({
             fieldValue={fieldValue}
             fieldType={fieldType}
             selectOptions={selectOptions}
-            toggleUpdateFormVisibility={onUpdateFieldClick}
+            toggleUpdateFormVisibility={e => toggleUpdateFormVisibility(e, id, fieldName)}
             id={id}
           />
         :
           <div>
             {children}
-            <a href="#" onClick={e => onUpdateFieldClick(e, fieldName)} className="contains-edit__link">
+            <a href="#" onClick={e => toggleUpdateFormVisibility(e, id, fieldName)} className="contains-edit__link">
               Edit {fieldName}
             </a>
           </div>
@@ -41,9 +41,9 @@ EditableField.propTypes = {
   fieldName: React.PropTypes.string.isRequired,
   fieldValue: React.PropTypes.string.isRequired,
   fieldType: React.PropTypes.string.isRequired,
-  onUpdateFieldClick: React.PropTypes.func.isRequired,
   updateForms: React.PropTypes.object.isRequired,
   id: React.PropTypes.string.isRequired,
+  toggleUpdateFormVisibility: React.PropTypes.func.isRequired,
   selectOptions: React.PropTypes.array
 };
 

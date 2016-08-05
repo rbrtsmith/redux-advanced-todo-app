@@ -5,10 +5,20 @@ import sinon from 'sinon';
 
 import AddTodo from '../../src/components/AddTodo';
 
-test.skip('<AddTodo /> it calls publishNewTodo when the form is submitted', t => {
+test('It calls publishNewTodo when the form is submitted', t => {
   const stubbedpublishNewTodo = sinon.stub();
+  const addTodoFormFieldValues = {
+    title: '',
+    description: '',
+    priority: 'low'
+  };
+  const props = {
+    publishNewTodo: stubbedpublishNewTodo,
+    addTodoFormFieldValues,
+    updateAddTodoFormFieldValue(){}
+  };
   const $ = shallow(
-    <AddTodo publishNewTodo={stubbedpublishNewTodo} />
+    <AddTodo { ...props } />
   );
 
   const e = {
@@ -17,5 +27,5 @@ test.skip('<AddTodo /> it calls publishNewTodo when the form is submitted', t =>
 
   $.find('form').prop('onSubmit')(e);
 
-  t.true(stubbedpublishNewTodo.calledWith(e, '', '', ''));
+  t.true(stubbedpublishNewTodo.calledWith(e, addTodoFormFieldValues));
 });
