@@ -147,11 +147,11 @@
 
     // Increase vertical gutter for large horizontal gutters
     @if $use-grid--gutter-lg {
-      .o-grid--gutter-lg {
+      .o-grid--matrix.o-grid--gutter-lg {
         margin-bottom: -$gutter-lg-width;
       }
 
-      .o-grid--gutter-lg > .o-grid__item {
+      .o-grid--matrix.o-grid--gutter-lg > .o-grid__item {
         margin-bottom: $gutter-lg-width;
       }
     }
@@ -162,7 +162,7 @@
         margin-bottom: -$gutter-sm-width;
       }
 
-      .o-grid--gutter-sm > .o-grid__item {
+      .o-grid--matrix.o-grid--gutter-sm > .o-grid__item {
         margin-bottom: $gutter-sm-width;
       }
     }
@@ -173,7 +173,7 @@
         margin-bottom: 0;
       }
 
-      .o-grid--no-gutter > .o-grid__item {
+      .o-grid--matrix.o-grid--no-gutter > .o-grid__item {
         margin-bottom: 0;
       }
     }

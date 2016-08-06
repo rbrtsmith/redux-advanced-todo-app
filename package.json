@@ -1,7 +1,7 @@
 {
-  "name": "customer-preference-centre-sandbox",
+  "name": "advanced-todos",
   "version": "1.0.0",
-  "description": "A sandbox environment for Sainsbury's customer preference centrre",
+  "description": "A more advanced todo application",
   "main": "index.js",
   "scripts": {
     "start": "gulp --watch",
@@ -10,8 +10,8 @@
     "lint": "gulp lint:js && stylelint 'src/scss/**/*.scss' --syntax scss",
     "test": "nyc --reporter=html ava test --verbose"
   },
-  "author": "Sainsbury's D&T",
-  "license": "UNLICENCED",
+  "author": "Robert Smith",
+  "license": "MIT",
   "dependencies": {
     "connect-modrewrite": "^0.9.0",
     "deep-freeze": "0.0.1",
@@ -21,8 +21,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
     "react-router-redux": "^4.0.5",
-    "redux": "^3.5.2",
-    "svg4everybody": "^2.1.0"
+    "redux": "^3.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",

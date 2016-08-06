@@ -33,7 +33,7 @@ test('It calls toggleUpdateFormVisibility when the edit link is clicked', t => {
 
 
 test('It renders an <UpdateFormContainer /> component when updateForms key matches the current todId and the fieldname props match', t => {
-  const stubbedToggleUpdateFormVisibility = sinon.stub();
+  const toggleUpdateFormVisibility = () => {};
   const updateForms = {
     T1: {
       title: true
@@ -44,7 +44,7 @@ test('It renders an <UpdateFormContainer /> component when updateForms key match
       fieldName="title"
       fieldType=""
       fieldValue=""
-      toggleUpdateFormVisibility={stubbedToggleUpdateFormVisibility}
+      toggleUpdateFormVisibility={toggleUpdateFormVisibility}
       updateForms={updateForms}
       id="T1"
     >
@@ -60,7 +60,7 @@ test('It renders an <UpdateFormContainer /> component when updateForms key match
 
 
 test('It renders an edit field link when updateForms key matches the current todId and the fieldname does not match and is set to true', t => {
-  const stubbedToggleUpdateFormVisibility = sinon.stub();
+  const toggleUpdateFormVisibility = () => {};
   const updateForms = {
     T1: {
       description: true
@@ -71,7 +71,7 @@ test('It renders an edit field link when updateForms key matches the current tod
       fieldName="title"
       fieldType=""
       fieldValue=""
-      toggleUpdateFormVisibility={stubbedToggleUpdateFormVisibility}
+      toggleUpdateFormVisibility={toggleUpdateFormVisibility}
       updateForms={updateForms}
       id="T1"
     >
@@ -87,7 +87,7 @@ test('It renders an edit field link when updateForms key matches the current tod
 
 
 test('It renders an an edit field link when updateForms key matches the current todId and the fieldname matches and is set to false', t => {
-  const stubbedToggleUpdateFormVisibility = sinon.stub();
+  const toggleUpdateFormVisibility = () => {};
   const updateForms = {
     T1: {
       title: false
@@ -98,7 +98,7 @@ test('It renders an an edit field link when updateForms key matches the current 
       fieldName="title"
       fieldType=""
       fieldValue=""
-      toggleUpdateFormVisibility={stubbedToggleUpdateFormVisibility}
+      toggleUpdateFormVisibility={toggleUpdateFormVisibility}
       updateForms={updateForms}
       id="T1"
     >
@@ -114,7 +114,7 @@ test('It renders an an edit field link when updateForms key matches the current 
 
 
 test('It renders an an edit field link when updateForms key does not match the current todId and the fieldname matches  and is set to true', t => {
-  const stubbedToggleUpdateFormVisibility = sinon.stub();
+  const toggleUpdateFormVisibility = () => {};
   const updateForms = {
     T2: {
       title: true
@@ -125,7 +125,7 @@ test('It renders an an edit field link when updateForms key does not match the c
       fieldName="title"
       fieldType=""
       fieldValue=""
-      toggleUpdateFormVisibility={stubbedToggleUpdateFormVisibility}
+      toggleUpdateFormVisibility={toggleUpdateFormVisibility}
       updateForms={updateForms}
       id="T1"
     >

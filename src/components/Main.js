@@ -9,7 +9,7 @@ import sortByPriority from '../utils/sortByPriority';
 
 const Main = ({ todos }) => (
   <div className="o-site-wrap o-site-wrap--padding">
-    <div className="o-grid o-grid--gutter-lg u-flush-bottom">
+    <div className="o-grid o-grid--gutter-lg u-push-bottom">
       <div className="o-grid__item u-1/3@sm">
         <h3>Todo</h3>
         <TodoList
