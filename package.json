@@ -17,6 +17,7 @@
     "deep-freeze": "0.0.1",
     "moment": "^2.14.1",
     "react": "^15.1.0",
+    "react-addons-css-transition-group": "^15.3.0",
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
