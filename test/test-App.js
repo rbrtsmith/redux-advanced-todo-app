@@ -13,7 +13,7 @@ global.navigator = window.navigator;
 
 
 
-test.skip('It renders a <Provider />', t => {
+test('It renders a <Provider />', t => {
   const createStore = () => {};
   const syncHistoryWithStore = () => {};
   const App = proxyquire('../src/App', {
