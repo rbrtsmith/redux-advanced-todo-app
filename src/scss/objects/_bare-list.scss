@@ -11,7 +11,7 @@
   .o-bare-list--spaced {
     margin-bottom: -$spacing-unit;
     > .o-bare-list__item {
-      padding-bottom: $spacing-unit;
+      margin-bottom: $spacing-unit;
     }
   }
 

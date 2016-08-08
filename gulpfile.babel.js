@@ -27,7 +27,7 @@ browserSync.create();
 const Paths = {
   OUT:      'dist',
   JS_SRC:   'src/**/*.js',
-  JS_ENTRY: 'src/app.js',
+  JS_ENTRY: 'src/App.js',
   HTML_SRC: 'src/index.html',
   SASS_SRC: 'src/scss/**/*.scss',
   SASS_OUT: 'dist/assets/css',

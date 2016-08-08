@@ -3,7 +3,7 @@ import React from 'react';
 const RemoveTodo = ({ removeTodo }) => (
   <button
     className="c-card__remove c-btn c-btn--remove"
-    onClick={removeTodo}
+    onClick={e => removeTodo(e)}
   >
     ✖
   </button>

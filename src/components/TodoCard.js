@@ -4,13 +4,17 @@ import { Link } from 'react-router';
 import RemoveTodoContainer from './RemoveTodoContainer';
 
 const TodoCard = ({ title, id, priority }) => (
-  <li className="o-bare-list__item">
-    <div className={`c-card c-card--${priority}`}>
-      <Link to={`/single/${id}`} >
-        <strong>{title}</strong>
-      </Link>
-      <RemoveTodoContainer id={id} />
-    </div>
+  <li className="o-bare-list__item c-tile">
+    <Link to={`/single/${id}`} >
+      <div className={`c-card c-card--${priority} c-tile__inner`}>
+        <div className="o-flag u-fill-height">
+          <div className="o-flag__body">
+            <strong>{title}</strong>
+            <RemoveTodoContainer id={id} />
+          </div>
+        </div>
+      </div>
+    </Link>
   </li>
 );
 

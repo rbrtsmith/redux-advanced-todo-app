@@ -11,7 +11,7 @@ const AddTodo = ({ publishNewTodo, addTodoFormFieldValues, updateAddTodoFormFiel
       <h2>Add new Todo</h2>
       <div className="o-grid o-grid--matrix u-flush-bottom">
         <div className="o-grid__item u-1/2@sm">
-          <div className="c-card">
+          <div className="c-card c-card">
             <form onSubmit={e => publishNewTodo(e, addTodoFormFieldValues)}>
               <ul className="o-bare-list o-bare-list--spaced">
                 <li className="o-bare-list__item">

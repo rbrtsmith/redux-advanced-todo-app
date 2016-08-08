@@ -7,7 +7,8 @@ import RemoveTodo from './RemoveTodo';
 
 
 const mapDispatchToProps = (dispatch, { id }) => ({
-  removeTodo() {
+  removeTodo(e) {
+    e.preventDefault();
     dispatch(removeTodo({
       id
     }));

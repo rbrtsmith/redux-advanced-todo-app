@@ -18,14 +18,34 @@
   transition: all .2s;
 }
 
+
+
+
 .c-card:hover .c-card__remove {
   opacity: 1;
 }
 
 
-.example-leave.example-leave-active {
+
+.c-tile {
+  position: relative;
+  min-height: 200px;
+}
+
+.c-tile__inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0 $spacing-unit;
+  text-align: center;
+}
+
+.c-tile--leave.c-tile--leave-active {
   opacity: 0;
-  transform: scale(0);
+  min-height: 0;
+  margin-bottom: 0;
   transition: all .3s;
 }
 

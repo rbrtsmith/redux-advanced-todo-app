@@ -3,7 +3,8 @@ import { render } from 'react-dom';
 import { Router, Route, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 
-import store, { history } from './store';
+import { store, history } from './store';
+
 
 import Root from './components/Root';
 import MainContainer from './components/MainContainer';
@@ -11,7 +12,7 @@ import SingleContainer from './components/SingleContainer';
 import NotFound from './components/NotFound';
 import AddTodoContainer from './components/AddTodoContainer';
 
-const Base = (
+const App = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={Root}>
@@ -26,4 +27,6 @@ const Base = (
   </Provider>
 );
 
-render(Base, document.querySelector('#app'));
+render(App, document.querySelector('#app'));
+
+export default App;

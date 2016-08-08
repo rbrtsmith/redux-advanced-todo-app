@@ -4,7 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const TodoList = ({ todos }) => (
   <ReactCSSTransitionGroup
-    transitionName="example"
+    transitionName="c-tile-"
     transitionEnterTimeout={300}
     transitionLeaveTimeout={300}
     component="ul"

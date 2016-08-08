@@ -26,6 +26,7 @@
   position: absolute;
   top: ($spacing-unit / 2);
   right: ($spacing-unit / 2);
+  z-index: 2;
   width: $size;
   height: $size;
   line-height: $size;
