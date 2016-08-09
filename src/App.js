@@ -1,32 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute } from 'react-router';
-import { Provider } from 'react-redux';
+import Routing from './components/routing';
 
-import { store, history } from './store';
-
-
-import Root from './components/Root';
-import MainContainer from './components/MainContainer';
-import SingleContainer from './components/SingleContainer';
-import NotFound from './components/NotFound';
-import AddTodoContainer from './components/AddTodoContainer';
-
-const App = (
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={Root}>
-        <Route path="single/:todoId" component={SingleContainer} />
-        <Route path="add-todo" component={AddTodoContainer} />
-        <IndexRoute component={MainContainer} />
-      </Route>
-      <Route path="*" component={Root}>
-        <IndexRoute component={NotFound} />
-      </Route>
-    </Router>
-  </Provider>
-);
-
-render(App, document.querySelector('#app'));
-
-export default App;
+render(<Routing />, document.querySelector('#app'));

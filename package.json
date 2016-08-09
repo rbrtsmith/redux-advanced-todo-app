@@ -72,13 +72,18 @@
   },
   "ava": {
     "require": [
-      "babel-register"
+      "babel-register",
+      "./jsdom.js"
     ],
     "babel": "inherit"
   },
   "nyc": {
     "include": [
       "src/**/*.js"
+    ],
+    "exclude": [
+      "src/App.js",
+      "src/data/*.js"
     ],
     "reporter": [
       "lcov",
