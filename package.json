@@ -75,6 +75,7 @@
       "babel-register",
       "./jsdom.js"
     ],
+    "concurrency": 5,
     "babel": "inherit"
   },
   "nyc": {
