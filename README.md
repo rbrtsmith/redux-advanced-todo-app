@@ -32,5 +32,5 @@ A More advanced Todo application.
 ##Build Process / testing
 * `npm t` to run unit tests & coverage
 * `npm lint` to run JS & CSS linting
-* `npm start` to run the build process in development mode with BrowserSync, Sourcemaps and filewatching
+* `npm start` to run the build process in development mode with BrowserSync, Sourcemaps and filewatching.
 * `npm build:production` to run the build process, generate the dist folder and minify all output.
