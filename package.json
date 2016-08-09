@@ -8,7 +8,7 @@
     "build": "gulp build",
     "build:production": "gulp --release",
     "lint": "gulp lint:js && stylelint 'src/scss/**/*.scss' --syntax scss",
-    "test": "ava test --verbose"
+    "test": "NODE_ENV=test nyc --reporter=html ava test --verbose"
   },
   "author": "Robert Smith",
   "license": "MIT",
@@ -93,6 +93,7 @@
     "require": [
       "babel-register"
     ],
-    "all": true
+    "sourceMap": false,
+    "instrument": false
   }
 }
