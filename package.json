@@ -8,7 +8,7 @@
     "build": "gulp build",
     "build:production": "gulp --release",
     "lint": "gulp lint:js && stylelint 'src/scss/**/*.scss' --syntax scss",
-    "test": "nyc --reporter=html ava test --verbose"
+    "test": "ava test --verbose"
   },
   "author": "Robert Smith",
   "license": "MIT",
