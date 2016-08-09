@@ -1,6 +1,8 @@
 
 A More advanced Todo application.
 
+<img src="https://circleci.com/gh/:rbrtsmith/:redux-advanced-todo-app.png?circle-token=:circle-token" alt="">
+
 ##Technologies used:
 * JS framework / libraries
     * [React](https://facebook.github.io/react/)
