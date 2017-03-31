@@ -1,9 +1,9 @@
 
-A More advanced Todo application.
+# A More advanced Todo application.
 
 [![CircleCI](https://circleci.com/gh/rbrtsmith/redux-advanced-todo-app.svg?style=svg)](https://circleci.com/gh/rbrtsmith/redux-advanced-todo-app)
 
-##Technologies used:
+## Technologies used:
 * JS framework / libraries
     * [React](https://facebook.github.io/react/)
     * [React Router](https://github.com/reactjs/react-router)
@@ -26,12 +26,12 @@ A More advanced Todo application.
     * [Sass](http://sass-lang.com/)
 * [Browsersync](https://www.browsersync.io/)
 
-##Get Started
+## Get Started
 1. `git clone git@github.com:rbrtsmith/redux-advanced-todo-app.git`
 2. `cd redux-advanced-todo-app`
 3. `npm i` to pull down dependencies
 
-##Build Process / testing
+## Build Process / testing
 * `npm t` to run unit tests & coverage
 * `npm lint` to run JS & CSS linting
 * `npm start` to run the build process in development mode with BrowserSync, Sourcemaps and filewatching.
